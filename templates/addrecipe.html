@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+
+{% block content%} 
+
+<div class="row">
+    <h2 class="center-align">Add a Recipe!</h2>
+    <p>Fill in the form to add a recipe to our collection:</p>
+</div>
+
+<div class="row">
+    <form action="{{url_for('insert_recipe')}}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="recipe_title" name="recipe_title" type="text" class="validate">
+                <label for="icon_prefix">Recipe Title</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="recipe_description" id="recipe_description" class="materialize-textarea"></textarea>
+                <label for="icon_telephone">Recipe Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add Recipe
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </form>
+</div>
+
+
+{% for recipe in recipes %} 
+    {{recipe.recipe_title}} 
+    {{recipe.recipe_description}} 
+    {{recipe.recipe_cuisine}} 
+    {{recipe.user.name}} 
+    {{recipe.user.country}} 
+    {{recipe.views}}
+    {{recipe.ingredients.name}}
+    {{recipe.ingredients.amount}}
+    {{recipe.ingredients.allergen}}
+    {{recipe.method}}
+{% endfor %}
+
+{% endblock %} 
