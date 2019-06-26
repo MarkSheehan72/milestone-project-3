@@ -7,23 +7,39 @@
     <p>To begin, select how you want to search for you desired recipe:</p>
 </div>
 
+
 <div class="row">
-    <a href="{{url_for('cuisine')}}" class="waves-effect waves-light btn blue darken-1 hoverable col s12 m4"><i class="material-icons">search</i> Cuisine</a>
-    <a href="#" class="waves-effect waves-light btn pink darken-1 hoverable col s12 m4"><i class="material-icons">search</i> Find a recipe now!</a>
-    <a href="#" class="waves-effect waves-light btn yellow darken-1 hoverable col s12 m4"><i class="material-icons">search</i> Find a recipe now!</a>
+    {% for category in categories %}
+        <a href="{{url_for('search_category', category_id=category._id)}}" class="waves-effect waves-light btn blue darken-1 hoverable col s12 m4"><i class="material-icons">search</i> {{category.category_name}}</a>
+    {% endfor %}
 </div>
 
-{% for recipe in recipes %} 
-    {{recipe.recipe_title}} 
-    {{recipe.recipe_description}} 
-    {{recipe.recipe_cuisine}} 
-    {{recipe.user.name}} 
-    {{recipe.user.country}} 
-    {{recipe.views}}
-    {{recipe.ingredients.name}}
-    {{recipe.ingredients.amount}}
-    {{recipe.ingredients.allergen}}
-    {{recipe.method}}
+
+{% for recipe in recipes %}
+
+    {% if the_category == "cuisine" %}
+    <p>{{recipe.cuisine}}</p>
+    {% elif the_category == recipe_title %}
+    <p>{{recipe.recipe_title}}</p>
+    {% elif the_category == ingredients %}
+    <p>{{recipe.ingredients.name}}</p>
+    {% else %}
+    <p>Something went wrong! Go home and try again.</p>
+    {% endif%}
+
 {% endfor %}
+
+<!--{% for recipe in recipes %} -->
+<!--    {{recipe.recipe_title}} -->
+<!--    {{recipe.recipe_description}} -->
+<!--    {{recipe.recipe_cuisine}} -->
+<!--    {{recipe.user.name}} -->
+<!--    {{recipe.user.country}} -->
+<!--    {{recipe.views}}-->
+<!--    {{recipe.ingredients.name}}-->
+<!--    {{recipe.ingredients.amount}}-->
+<!--    {{recipe.ingredients.allergen}}-->
+<!--    {{recipe.method}}-->
+<!--{% endfor %}-->
 
 {% endblock %} 

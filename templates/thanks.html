@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content%}
+
+<div class="row">
+    <h2 class="center-align">Thank you for adding a recipe to our collection.</h2>
+    <p class="center_align">We appreciate the time and effort gone into creating your recipe and appreciate you sharing it with our community. CLick the button
+    bellow to ruturn to the home page where you can either search our recipes, or if you are feeling even more generous, add another of your
+    delicious recipes.</p>
+    <a href="{{url_for('index')}}" class="waves-effect waves-light btn hoverable col s12 m4 offset-m4"><i class="material-icons">search</i>Return Home</a>
+</div>
+
+
+
+
+{% endblock %}
