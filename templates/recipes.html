@@ -15,19 +15,7 @@
 </div>
 
 
-{% for recipe in recipes %}
 
-    {% if the_category == "cuisine" %}
-    <p>{{recipe.cuisine}}</p>
-    {% elif the_category == recipe_title %}
-    <p>{{recipe.recipe_title}}</p>
-    {% elif the_category == ingredients %}
-    <p>{{recipe.ingredients.name}}</p>
-    {% else %}
-    <p>Something went wrong! Go home and try again.</p>
-    {% endif%}
-
-{% endfor %}
 
 <!--{% for recipe in recipes %} -->
 <!--    {{recipe.recipe_title}} -->

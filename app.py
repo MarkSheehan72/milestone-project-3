@@ -52,10 +52,19 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes, categories=categories)
 
 
-@app.route('/get_recipes/<category_id>')
+@app.route('/search_category/<category_id>')
 def search_category(category_id):
     the_category = mongo.db.categories.find({'_id': ObjectId(category_id)})
-    return render_template("recipes.html", recipes=mongo.db.recipes.find(), categories=the_category)
+    all_categories = mongo.db.categories.find()
+    recipes=mongo.db.recipes.find()
+    return render_template("search_category.html", recipes=recipes, category=the_category, categories=all_categories)
+    
+@app.route('/search_recipes/<recipe_id>')
+def search_recipes(recipe_id):
+    the_recipes = mongo.db.categories.find({'_id': ObjectId(recipe_id)})
+    all_categories = mongo.db.categories.find()
+    recipes=mongo.db.recipes.find()
+    return render_template("search_recipes.html", recipes=recipes, recipe=the_recipes, categories=all_categories)
     
 
     

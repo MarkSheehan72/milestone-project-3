@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block content%}
+
+<div class="row">
+    <h2 class="center-align">Find a Recipe!</h2>
+    <p>To begin, select how you want to search for you desired recipe:</p>
+</div>
+
+<div class="row">
+    {% for rec in recipe %}
+        <p>{{recipe.recipe_title}}</p>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

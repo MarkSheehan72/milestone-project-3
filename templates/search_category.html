@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% block content%}
+
+<div class="row">
+    <h2 class="center-align">Find a Recipe!</h2>
+    <p>To begin, select how you want to search for you desired recipe:</p>
+</div>
+
+<div class="row">
+    {% for category in categories %}
+    <a href="{{url_for('search_category', category_id=category._id)}}" class="waves-effect waves-light btn blue darken-1 hoverable col s12 m4"><i class="material-icons">search</i> {{category.category_name}}</a> {% endfor %}
+</div>
+
+<form action="{{url_for('search_recipes', recipe_id=recipes._id)}}" method="POST" class="col s12">
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">poll</i>
+            <select id="category_name" name="category_name">
+                    <option value="" disabled selected>Please choose your preferred option:</option>
+                    {% for cat in category %}
+
+                        {% if cat.category_name == "cuisine" %}
+                            {% for recipe in recipes %}
+                                <option value="{{recipe.recipe_cuisine}}">{{recipe.recipe_cuisine}}</option>
+                            {% endfor %}
+                        {% elif cat.category_name == "recipe title" %}
+                            {% for recipe in recipes %}
+                                <option value="{{recipe.recipe_title}}">{{recipe.recipe_title}}</option>
+                            {% endfor %}
+                        {% elif cat.category_name == "ingredients" %}
+                            {% for recipe in recipes %}
+                                <option value="{{recipe.ingredients.name}}">{{recipe.ingredients.name}}</option>
+                            {% endfor %}
+                        {% else %}
+                            <p>Something went wrong! Go home and try again.</p>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            <label>Search</label>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Search Recipes
+                <i class="material-icons right">search</i>
+            </button>
+    </div>
+</form>
+
+
+<!--{% for cat in category %}-->
+
+<!--    {% if cat.category_name == "cuisine" %}-->
+<!--        {% for recipe in recipes %}-->
+<!--            <a href="#" class="waves-effect waves-light btn yellow darken-1 hoverable col s12 m4"><i class="material-icons">search</i> {{recipe.recipe_cuisine}}</a>-->
+<!--        {% endfor %}-->
+<!--    {% elif cat.category_name == "recipe title" %}-->
+<!--        {% for recipe in recipes %}-->
+<!--            <a href="#" class="waves-effect waves-light btn yellow darken-1 hoverable col s12 m4"><i class="material-icons">search</i> {{recipe.recipe_title}}</a>-->
+<!--        {% endfor %}-->
+<!--    {% elif cat.category_name == "ingredients" %}-->
+<!--        {% for recipe in recipes %}-->
+<!--            <a href="#" class="waves-effect waves-light btn yellow darken-1 hoverable col s12 m4"><i class="material-icons">search</i> {{recipe.ingredients.name}}</a>-->
+<!--        {% endfor %}-->
+<!--    {% else %}-->
+<!--        <p>Something went wrong! Go home and try again.</p>-->
+<!--    {% endif %}-->
+
+<!--{% endfor %}-->
+
+
+
+
+
+
+{% endblock %}
