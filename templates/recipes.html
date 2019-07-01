@@ -1,6 +1,5 @@
 {% extends 'base.html' %} 
-
-{% block content%} 
+{% block content%}
 
 <div class="row">
     <h2 class="center-align">Find a Recipe!</h2>
@@ -13,6 +12,22 @@
         <a href="{{url_for('search_category', category_id=category._id)}}" class="waves-effect waves-light btn blue darken-1 hoverable col s12 m4"><i class="material-icons">search</i> {{category.category_name}}</a>
     {% endfor %}
 </div>
+
+
+
+
+
+<!--<div class="row">-->
+<!--    <form action="#" method="POST" class="col s12">-->
+<!--        <div class="row">-->
+<!--            {% for category in categories %}-->
+<!--            <a href="#" class="waves-effect waves-light btn blue darken-1 hoverable col s12 m4"><i class="material-icons">search</i> {{category.category_name}}</a> -->
+<!--            {% endfor %}-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+
+
 
 
 
@@ -30,4 +45,4 @@
 <!--    {{recipe.method}}-->
 <!--{% endfor %}-->
 
-{% endblock %} 
+{% endblock %}

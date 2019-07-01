@@ -31,9 +31,9 @@ def insert_recipe():
             {'name': request.form.get('user_name'),
             'country': request.form.get('user_country')},
         'ingredients': 
-            {'name': request.form.get('ingredient_name'),
-            'amount': request.form.get('ingredient_amount'),
-            'allergen': request.form.get('ingredient_allergen')},
+            {'name': request.form.getlist('ingredient_name'),
+            'amount': request.form.getlist('ingredient_amount'),
+            'allergen': request.form.getlist('ingredient_allergen')},
         'method': request.form.get('recipe_method'),
         'image': request.form.get('image')
     })
@@ -59,12 +59,18 @@ def search_category(category_id):
     recipes=mongo.db.recipes.find()
     return render_template("search_category.html", recipes=recipes, category=the_category, categories=all_categories)
     
-@app.route('/search_recipes/<recipe_id>')
-def search_recipes(recipe_id):
-    the_recipes = mongo.db.categories.find({'_id': ObjectId(recipe_id)})
+    
+@app.route('/search_recipes/<category_id>', methods=['POST'])
+def search_recipes(category_id):
+    the_category = mongo.db.categories.find({'_id': ObjectId(category_id)})
     all_categories = mongo.db.categories.find()
     recipes=mongo.db.recipes.find()
-    return render_template("search_recipes.html", recipes=recipes, recipe=the_recipes, categories=all_categories)
+    search = request.form.get('search_recipes')
+    the_search = search.lower()
+    return render_template("search_recipes.html", recipes=recipes, category=the_category, categories=all_categories, search=the_search)
+
+
+
     
 
     

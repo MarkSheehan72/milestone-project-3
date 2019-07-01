@@ -7,8 +7,34 @@
 </div>
 
 <div class="row">
-    {% for rec in recipe %}
-        <p>{{recipe.recipe_title}}</p>
+    {% for cat in category %}
+        {% if cat.category_name == "cuisine" %}
+            {% for recipe in recipes %}
+                {% if "search" in recipe.cuisine %}
+                    <option value="{{recipe.recipe_cuisine}}">{{recipe.recipe_cuisine}}</option>
+                {% else %}
+                    <p>Something went wrong! Go home and try again.</p>
+                {% endif %}
+            {% endfor %}
+        {% elif cat.category_name == "recipe.recipe_title" %}
+            {% for recipe in recipes %}
+                {% if "search" in recipe.recipe_title %}
+                    <option value="{{recipe.recipe_title}}">{{recipe.recipe_title}}</option>
+                {% else %}
+                    <p>Something went wrong! Go home and try again.</p>
+                {% endif %}
+            {% endfor %}
+        {% elif cat.category_name == "ingredients" %}
+            {% for recipe in recipes %}
+                {% if "search" in recipe.ingredients.name %}
+                    <option value="{{recipe.ingredients.name}}">{{recipe.ingredients.name}}</option>
+                {% else %}
+                    <p>Something went wrong! Go home and try again.</p>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>Something went wrong! Go home and try again.</p>
+        {% endif %}
     {% endfor %}
 </div>
 
