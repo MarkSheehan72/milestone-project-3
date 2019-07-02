@@ -1,0 +1,12 @@
+{% extends 'base.html' %} 
+{% block content%}
+
+
+{% for recipe in username_search %}
+    <p>{{recipe.recipe_title}}</p>
+{% endfor %}
+        
+   
+
+
+{% endblock %}

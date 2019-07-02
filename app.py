@@ -66,10 +66,24 @@ def search_recipes(category_id):
     all_categories = mongo.db.categories.find()
     recipes=mongo.db.recipes.find()
     search = request.form.get('search_recipes')
-    the_search = search.lower()
-    return render_template("search_recipes.html", recipes=recipes, category=the_category, categories=all_categories, search=the_search)
+    title_search = mongo.db.recipes.find({"recipe_title": {"$regex":search}})
+    cuisine_search = mongo.db.recipes.find({"recipe_cuisine": {"$regex":search}})
+    ingredients_search = mongo.db.recipes.find({"ingredients": {"$regex":search}})
+    return render_template("search_recipes.html", recipes=recipes, category=the_category, categories=all_categories, title_search=title_search, cuisine_search=cuisine_search, ingredients_search=ingredients_search)
 
 
+@app.route('/search_username')
+def search_username():
+    recipes=mongo.db.recipes.find()
+    return render_template("search_username.html", recipes=recipes)
+
+
+@app.route('/search_recipes_by_username', methods=['POST'])
+def search_recipes_by_username():
+    recipes=mongo.db.recipes.find()
+    search = request.form.get('search_recipes_by_username')
+    username_search = mongo.db.recipes.find({"user.name": {"$regex":search}})
+    return render_template("search_recipes_by_username.html", recipes=recipes, username_search=username_search)
 
     
 
