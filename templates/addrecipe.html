@@ -1,8 +1,10 @@
-{% extends 'base.html' %} {% block content%}
+{% extends 'base.html' %} 
+{% block content%}
 
 <div class="row">
     <h2 class="center-align">Add a Recipe!</h2>
-    <p>Fill in the form to add a recipe to our collection:</p>
+    <p>Fill in the form to add a recipe to our collection.</p> 
+    <p><strong>Note:</strong> Please write the ingredients rows in lowercase.</p>
 </div>
 
 <div class="row">
@@ -75,10 +77,112 @@
             </div>
         </div>
         <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_name" id="ingredient_name" type="text" class="validate">
+                <label for="icon_telephone">Ingredient</label>
+            </div>
+            <div class="input-field col s2">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
+                <label for="icon_telephone">Amount</label>
+            </div>
+            <div class="input-field col s4">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate">
+                <label for="icon_telephone">Allergen</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_name" id="ingredient_name" type="text" class="validate">
+                <label for="icon_telephone">Ingredient</label>
+            </div>
+            <div class="input-field col s2">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
+                <label for="icon_telephone">Amount</label>
+            </div>
+            <div class="input-field col s4">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate">
+                <label for="icon_telephone">Allergen</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_name" id="ingredient_name" type="text" class="validate">
+                <label for="icon_telephone">Ingredient</label>
+            </div>
+            <div class="input-field col s2">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
+                <label for="icon_telephone">Amount</label>
+            </div>
+            <div class="input-field col s4">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate">
+                <label for="icon_telephone">Allergen</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_name" id="ingredient_name" type="text" class="validate">
+                <label for="icon_telephone">Ingredient</label>
+            </div>
+            <div class="input-field col s2">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
+                <label for="icon_telephone">Amount</label>
+            </div>
+            <div class="input-field col s4">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate">
+                <label for="icon_telephone">Allergen</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_name" id="ingredient_name" type="text" class="validate">
+                <label for="icon_telephone">Ingredient</label>
+            </div>
+            <div class="input-field col s2">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
+                <label for="icon_telephone">Amount</label>
+            </div>
+            <div class="input-field col s4">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate">
+                <label for="icon_telephone">Allergen</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_name" id="ingredient_name" type="text" class="validate">
+                <label for="icon_telephone">Ingredient</label>
+            </div>
+            <div class="input-field col s2">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
+                <label for="icon_telephone">Amount</label>
+            </div>
+            <div class="input-field col s4">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate">
+                <label for="icon_telephone">Allergen</label>
+            </div>
+        </div>
+        <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
                 <textarea name="recipe_method" id="recipe_method" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Method</label>
+                <label for="icon_telephone">Method (Number steps and write them on seperate lines)</label>
             </div>
         </div>
         <div class="row">
@@ -96,10 +200,6 @@
         </div>
     </form>
 </div>
-
-
-<!--{% for recipe in recipes %} {{recipe.recipe_title}} {{recipe.recipe_description}} {{recipe.recipe_cuisine}} {{recipe.user.name}} {{recipe.user.country}} {{recipe.views}} {{recipe.ingredients.name}} {{recipe.ingredients.amount}} {{recipe.ingredients.allergen}}-->
-<!--{{recipe.method}} {% endfor %} {% endblock %}-->
 
 
 {% endblock %}

@@ -24,18 +24,18 @@ def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert(
     {
-        'recipe_title': request.form.get('recipe_title'),
-        'recipe_description': request.form.get('recipe_description'),
-        'recipe_cuisine': request.form.get('recipe_cuisine'),
+        'recipe_title': request.form.get('recipe_title').lower(),
+        'recipe_description': request.form.get('recipe_description').lower(),
+        'recipe_cuisine': request.form.get('recipe_cuisine').lower(),
         'user': 
-            {'name': request.form.get('user_name'),
-            'country': request.form.get('user_country')},
+            {'name': request.form.get('user_name').lower(),
+            'country': request.form.get('user_country').lower()},
         'ingredients': 
             {'name': request.form.getlist('ingredient_name'),
             'amount': request.form.getlist('ingredient_amount'),
             'allergen': request.form.getlist('ingredient_allergen')},
-        'method': request.form.get('recipe_method'),
-        'image': request.form.get('image')
+        'method': request.form.get('recipe_method').lower(),
+        'image': request.form.get('image').lower()
     })
     return redirect(url_for('thanks'))
 
@@ -68,7 +68,7 @@ def search_recipes(category_id):
     search = request.form.get('search_recipes')
     title_search = mongo.db.recipes.find({"recipe_title": {"$regex":search}})
     cuisine_search = mongo.db.recipes.find({"recipe_cuisine": {"$regex":search}})
-    ingredients_search = mongo.db.recipes.find({"ingredients": {"$regex":search}})
+    ingredients_search = mongo.db.recipes.find({"ingredients.name": {"$regex":search}})
     return render_template("search_recipes.html", recipes=recipes, category=the_category, categories=all_categories, title_search=title_search, cuisine_search=cuisine_search, ingredients_search=ingredients_search)
 
 
@@ -81,11 +81,59 @@ def search_username():
 @app.route('/search_recipes_by_username', methods=['POST'])
 def search_recipes_by_username():
     recipes=mongo.db.recipes.find()
-    search = request.form.get('search_recipes_by_username')
+    search = request.form.get('search_recipes_by_username').lower()
     username_search = mongo.db.recipes.find({"user.name": {"$regex":search}})
     return render_template("search_recipes_by_username.html", recipes=recipes, username_search=username_search)
-
     
+    
+@app.route('/search_cuisine')
+def search_cuisine():
+    recipes=mongo.db.recipes.find()
+    return render_template("search_cuisine.html", recipes=recipes)
+
+
+@app.route('/search_recipes_by_cuisine', methods=['POST'])
+def search_recipes_by_cuisine():
+    recipes=mongo.db.recipes.find()
+    search = request.form.get('search_recipes_by_cuisine').lower()
+    cuisine_search = mongo.db.recipes.find({"recipe_cuisine": {"$regex":search}})
+    return render_template("search_recipes_by_cuisine.html", recipes=recipes, cuisine_search=cuisine_search)
+
+
+@app.route('/search_ingredient')
+def search_ingredient():
+    recipes=mongo.db.recipes.find()
+    return render_template("search_ingredient.html", recipes=recipes)
+
+
+@app.route('/search_recipes_by_ingredient', methods=['POST'])
+def search_recipes_by_ingredient():
+    recipes=mongo.db.recipes.find()
+    search = request.form.get('search_recipes_by_ingredient')
+    ingredient_search = mongo.db.recipes.find({"ingredients.name": {"$regex":search}})
+    return render_template("search_recipes_by_ingredient.html", recipes=recipes, ingredient_search=ingredient_search)
+
+
+@app.route('/search_recipe_title')
+def search_recipe_title():
+    recipes=mongo.db.recipes.find()
+    return render_template("search_recipe_title.html", recipes=recipes)
+
+
+@app.route('/search_recipes_by_recipe_title', methods=['POST'])
+def search_recipes_by_recipe_title():
+    recipes=mongo.db.recipes.find()
+    search = request.form.get('search_recipes_by_recipe_title').lower()
+    recipe_title_search = mongo.db.recipes.find({"recipe_title": {"$regex":search}})
+    return render_template("search_recipes_by_recipe_title.html", recipes=recipes, recipe_title_search=recipe_title_search)
+
+
+@app.route('/the_recipe/<recipe_id>')
+def the_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find({'_id': ObjectId(recipe_id)})
+    return render_template("the_recipe.html", recipe=the_recipe)
+
+
 
     
 # @app.route('/cuisine', methods=['POST'])

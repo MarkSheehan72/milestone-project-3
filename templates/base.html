@@ -16,21 +16,28 @@
 <body>
 
     <header>
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="{{url_for('search_recipe_title')}}">Recipe Title</a></li>
+            <li class="divider"></li>
+            <li><a href="{{url_for('search_cuisine')}}">Cuisine</a></li>
+            <li class="divider"></li>
+            <li><a href="{{url_for('search_ingredient')}}">Ingredients</a></li>
+            <li class="divider"></li>
+            <li><a href="{{url_for('search_username')}}">Your Username</a></li>
+        </ul>
         <nav>
             <div class="nav-wrapper blue lighten-3">
                 <a href="{{url_for('index')}}" class="brand-logo">Cook Book</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="{{url_for('get_recipes')}}">Find a Recipe</a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Find recipes by:<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a href="{{url_for('add_recipe')}}">Add a Recipe</a></li>
-                    <li><a href="{{url_for('search_username')}}">Your Recipes</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="{{url_for('get_recipes')}}">Find a Recipe</a></li>
-                    <li><a href="#">Add a Recipe</a></li>
-                    <li><a href="#">Your Recipes</a></li>
+                    <li><a href="#!">Find a Recipe</a></li>
+                    <li><a href="{{url_for('add_recipe')}}">Add a Recipe</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,7 +47,7 @@
         {% block content %} {% endblock %}
 
     </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript">
@@ -48,6 +55,7 @@
             $('.collapsible').collapsible();
             $('select').material_select();
             $(".button-collapse").sideNav();
+            $(".dropdown-button").dropdown({ hover: true });
         });
     </script>
 
