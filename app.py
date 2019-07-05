@@ -34,7 +34,7 @@ def insert_recipe():
             {'name': request.form.getlist('ingredient_name'),
             'amount': request.form.getlist('ingredient_amount'),
             'allergen': request.form.getlist('ingredient_allergen')},
-        'method': request.form.get('recipe_method').lower(),
+        'method': request.form.getlist('recipe_method').lower(),
         'image': request.form.get('image').lower()
     })
     return redirect(url_for('thanks'))
@@ -127,11 +127,20 @@ def search_recipes_by_recipe_title():
     recipe_title_search = mongo.db.recipes.find({"recipe_title": {"$regex":search}})
     return render_template("search_recipes_by_recipe_title.html", recipes=recipes, recipe_title_search=recipe_title_search)
 
-
 @app.route('/the_recipe/<recipe_id>')
 def the_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find({'_id': ObjectId(recipe_id)})
+    mongo.db.recipes.update({'_id': ObjectId(recipe_id)}, { '$inc': { 'views': 1 } })
     return render_template("the_recipe.html", recipe=the_recipe)
+
+
+
+
+
+# @app.route('/the_recipe/<recipe_id>')
+# def the_recipe(recipe_id):
+#     the_recipe = mongo.db.recipes.find({'_id': ObjectId(recipe_id)})
+#     return render_template("the_recipe.html", recipe=the_recipe)
 
 
 

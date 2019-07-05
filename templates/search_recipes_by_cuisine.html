@@ -5,10 +5,16 @@
 <div class="row">
 {% for recipe in cuisine_search %}
 
-    <div class="card-panel col s4">
+    <div class="card-panel col s12 m6 l4">
         <h3 class="center-align">{{recipe.recipe_title.capitalize()}}</h3>
         <div class="divider"></div>
-        <img src="{{recipe.image}}" class="col s8 offset-s2 responsive-img" id="index-img"></img>
+        {% for image in recipe.image %}
+            {% if recipe.image != "" %}
+                <img src="{{recipe.image}}" class="col s8 offset-s2 responsive-img" id="index-img"></img>
+            {% else %}
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" class="col s8 offset-s2 responsive-img"></img>
+            {% endif %}
+        {% endfor %}
         <div class="divider"></div>
         <p class="col s12 m6 center-align">Author: {{recipe.user.name}}</p>
         <p class="col s12 m6 center-align"><i class="material-icons">visibility</i> {{recipe.views}}</p>

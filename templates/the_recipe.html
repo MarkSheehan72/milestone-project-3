@@ -54,7 +54,11 @@
         <div class="col s12 m6">
             <h5><strong>Method:</strong></h5>
             <ul>
-                <li>{{recipe.method.capitalize()}}</li>
+            {% for method in recipe.method %}
+                {% if method != ""%}
+                <li>{{method.capitalize()}}</li>
+                {% endif %}
+            {% endfor %}
             </ul>
         </div>
     </div>
