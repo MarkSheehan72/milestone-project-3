@@ -1,0 +1,150 @@
+{% extends 'base.html' %} 
+{% block content%}
+
+<div class="row">
+    <h2 class="center-align">Edit this Recipe!</h2>
+    <p>Change the fields you wish to edit and click the save button to submit these changes.</p> 
+    <p><strong>Note:</strong> Please write the ingredients rows in lowercase.</p>
+</div>
+
+<div class="row">
+    <form action="{{url_for('insert_recipe')}}" method="POST" class="col s12">
+        <div class="row">
+            <h5><strong>Recipe Details:</strong></h5>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="recipe_title" name="recipe_title" type="text" class="validate" value="{{recipe.recipe_title}}">
+                <label for="icon_prefix">Recipe Title</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="recipe_description" id="recipe_description" class="materialize-textarea">{{recipe.recipe_description}}</textarea>
+                <label for="icon_telephone">Recipe Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <input name="recipe_cuisine" id="recipe_cuisine" type="text" class="validate" value="{{recipe.recipe_cuisine}}">
+                <label for="icon_telephone">Recipe Cuisine</label>
+            </div>
+        </div>
+        <div class="row">
+            <h5><strong>Personal Details:</strong></h5>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">subject</i>
+                <input name="user_name" id="user_name" type="text" class="validate" value="{{recipe.user.name}}">
+                <label for="icon_telephone">Username</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">subject</i>
+                <input name="user_country" id="user_country" type="text" class="validate" value="{{recipe.user.country}}">
+                <label for="icon_telephone">User Country</label>
+            </div>
+        </div>
+        <div class="row">
+            <h5><strong>Ingredients:</strong></h5>
+        </div>
+        <div class="row">
+            <ul>
+            {% for ingredient in recipe.ingredients.name %}
+            <li>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_name" id="ingredient_name" type="text" class="validate" value="{{ingredient}}">
+                <label for="icon_telephone">Ingredient</label>
+                </ul>
+            </div>
+            </li>
+            {% endfor %}
+            </ul>
+            {% for amount in recipe.ingredients.amount %}
+            <div class="input-field col s6 m2">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate" value="{{amount}}">
+                <label for="icon_telephone">Amount</label>
+            </div>
+            {% endfor %}
+            {% for allergen in recipe.ingredients.allergen %}
+            <div class="input-field col s6 m4">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate" value="{{allergen}}">
+                <label for="icon_telephone">Allergen</label>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_name" id="ingredient_name" type="text" class="validate">
+                <label for="icon_telephone">Ingredient</label>
+            </div>
+            <div class="input-field col s6 m2">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
+                <label for="icon_telephone">Amount</label>
+            </div>
+            <div class="input-field col s6 m4">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate">
+                <label for="icon_telephone">Allergen</label>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_name" id="ingredient_name" type="text" class="validate">
+                <label for="icon_telephone">Ingredient</label>
+            </div>
+            <div class="input-field col s6 m2">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
+                <label for="icon_telephone">Amount</label>
+            </div>
+            <div class="input-field col s6 m4">
+                <i class="material-icons prefix">subject</i>
+                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate">
+                <label for="icon_telephone">Allergen</label>
+            </div>
+        </div>
+        <div class="row">
+            <h5><strong>Method:</strong></h5>
+            <p>Number steps and write one step per space in the form:</p>
+        </div>
+        <div class="row">
+            {% for method in recipe.method %}
+            {% if method != ""%}
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="recipe_method" id="recipe_method" class="materialize-textarea">{{method}}</textarea>
+                <label for="icon_telephone">Method Step:</label>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <h5><strong>Image:</strong></h5>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="image" id="image" type="text" class="materialize-textarea">{{recipe.image}}</textarea>
+                <label for="icon_telephone">Recipe Image (Paste an image URL here if available) - <strong>OPTIONAL</strong></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add Recipe
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

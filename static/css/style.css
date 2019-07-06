@@ -1,10 +1,8 @@
 #index-img {
-    max-width: 290px;
-    max-height: 200px;
-    margin: 10px;
+    max-height: 210px;
+    margin-bottom: 10px;
 }
 
 #get-recipes-img {
-    max-width: 290px;
-    max-height: 200px;
+    max-height: 170px;
 }

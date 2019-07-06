@@ -132,6 +132,17 @@ def the_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find({'_id': ObjectId(recipe_id)})
     mongo.db.recipes.update({'_id': ObjectId(recipe_id)}, { '$inc': { 'views': 1 } })
     return render_template("the_recipe.html", recipe=the_recipe)
+    
+@app.route('/edit_recipe/<recipe_id>') 
+def edit_recipe(recipe_id): 
+    the_recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}) 
+    return render_template('edit_recipe.html', recipe=the_recipe) 
+
+@app.route('/delete_recipe/<recipe_id>') 
+def delete_recipe(recipe_id): 
+    recipes = mongo.db.recipes
+    recipes.remove({'_id': ObjectId(recipe_id)}) 
+    return redirect(url_for('index')) 
 
 
 
