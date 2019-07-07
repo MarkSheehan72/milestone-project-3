@@ -10,15 +10,24 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@myfirstcluster-chhcw.mong
 
 mongo = PyMongo(app)
 
+
+# Home Page
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template("index.html")
-    
+
+# Add recipe page
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template("addrecipe.html", recipes=mongo.db.recipes.find(), categories=mongo.db.categories.find())
+    recipes=mongo.db.recipes.find()
+    categories=mongo.db.categories.find()
+    return render_template("addrecipe.html", recipes=recipes, categories=categories)
 
+
+# Function for inserting a recipe as a document in MongoDB. Once a user has added a recipe,
+# they will be redirecte to thanks.html, which is just a confirmation for the viewer that they
+# have successfully added a recipe to the app.
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
@@ -34,8 +43,8 @@ def insert_recipe():
             {'name': request.form.getlist('ingredient_name'),
             'amount': request.form.getlist('ingredient_amount'),
             'allergen': request.form.getlist('ingredient_allergen')},
-        'method': request.form.getlist('recipe_method').lower(),
-        'image': request.form.get('image').lower()
+        'method': request.form.getlist('recipe_method'),
+        'image': request.form.get('image')
     })
     return redirect(url_for('thanks'))
 
@@ -45,6 +54,7 @@ def thanks():
     return render_template("thanks.html")
 
 
+# Page linked from pressing the "Find Recipe" button on index.html.
 @app.route('/get_recipes') 
 def get_recipes():
     recipes=mongo.db.recipes.find()
@@ -109,7 +119,7 @@ def search_ingredient():
 @app.route('/search_recipes_by_ingredient', methods=['POST'])
 def search_recipes_by_ingredient():
     recipes=mongo.db.recipes.find()
-    search = request.form.get('search_recipes_by_ingredient')
+    search = request.form.get('search_recipes_by_ingredient').lower()
     ingredient_search = mongo.db.recipes.find({"ingredients.name": {"$regex":search}})
     return render_template("search_recipes_by_ingredient.html", recipes=recipes, ingredient_search=ingredient_search)
 
@@ -143,28 +153,6 @@ def delete_recipe(recipe_id):
     recipes = mongo.db.recipes
     recipes.remove({'_id': ObjectId(recipe_id)}) 
     return redirect(url_for('index')) 
-
-
-
-
-
-# @app.route('/the_recipe/<recipe_id>')
-# def the_recipe(recipe_id):
-#     the_recipe = mongo.db.recipes.find({'_id': ObjectId(recipe_id)})
-#     return render_template("the_recipe.html", recipe=the_recipe)
-
-
-
-    
-# @app.route('/cuisine', methods=['POST'])
-# def cuisine():
-#     return render_template("cuisine.html", recipes=mongo.db.recipes.find(), cuisine=mongo.db.recipes.cuisine.find(), categories=mongo.db.categories.find())
-
-
-# @app.route('/cuisine_recipes/<cuisine_choice>', methods=['POST'])
-# def cuisine_recipes(cuisine_choice):
-#     the_cuisine = mongo.db.recipes.find({'cuisine': ObjectId(cuisine_choice)})
-#     return render_template("cuisine_recipes.html", cuisine=the_cuisine, recipes=mongo.db.recipes.find(), categories=mongo.db.categories.find())
 
    
 if __name__ == '__main__':
