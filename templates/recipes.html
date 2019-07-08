@@ -3,48 +3,131 @@
 
 <div class="row">
     <h2 class="center-align">Find a Recipe!</h2>
-    <p>To begin, select how you want to search for you desired recipe:</p>
+    <p class="center-align">To begin, select how you want to search for you desired recipe:</p>
 </div>
 
 
 <div class="row">
-    <div class="card-panel col s12 m6">
-        <div class="row">
-            <a href="{{url_for('search_recipe_title')}}" class="waves-effect waves-light btn pink darken-1 hoverable col s12"><i class="fas fa-heading"></i> Recipe Title</a>
-        </div>
-        <div class="row">
-            <img src="http://apelafoundation.org/wp-content/uploads/2014/06/recipe-title-300x119.jpg" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>
+    <!--<div class="col s12 m6">-->
+    <!--    <div class="card medium">-->
+    <!--        <div class="card-image">-->
+    <!--          <img src="http://apelafoundation.org/wp-content/uploads/2014/06/recipe-title-300x119.jpg">-->
+    <!--        </div>-->
+    <!--        <div class="card-content blue lighten-4">-->
+    <!--            <span class="card-title">Recipe Title</span>-->
+    <!--            <p>Click below search recipes by their title.</p>-->
+    <!--        </div>-->
+    <!--        <div class="card-action blue darken-1">-->
+    <!--          <a href="{{url_for('search_recipe_title')}}">Recipe Title</a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+    
+    <div class="col s12 m6">
+        <h4 class="header">Recipe Title</h4>
+        <div class="card horizontal">
+            <div class="card-image valign-wrapper">
+                <img src="http://apelafoundation.org/wp-content/uploads/2014/06/recipe-title-300x119.jpg">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Click below search recipes by their title.</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{url_for('search_recipe_title')}}">Recipe Title</a>
+                </div>
+            </div>
         </div>
     </div>
+    
+    <div class="col s12 m6">
+        <h4 class="header">Recipe Cuisine</h4>
+        <div class="card horizontal">
+            <div class="card-image valign-wrapper">
+                <img src="https://c.pxhere.com/photos/2d/99/sushi_sashimi_eat_restaurant_delicacy_dine_fish_rice-760717.jpg!d">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Click below search recipes by their cuisine.</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{url_for('search_cuisine')}}">Recipe Cuisine</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--<div class="card-panel col s12 m6">-->
+    <!--    <div class="row">-->
+    <!--        <a href="{{url_for('search_recipe_title')}}" class="waves-effect waves-light btn pink darken-1 hoverable col s12"><i class="fas fa-heading"></i> Recipe Title</a>-->
+    <!--    </div>-->
+    <!--    <div class="row">-->
+    <!--        <img src="http://apelafoundation.org/wp-content/uploads/2014/06/recipe-title-300x119.jpg" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>-->
+    <!--    </div>-->
+    <!--</div>-->
 
-    <div class="card-panel col s12 m6">
-        <div class="row">
-            <a href="{{url_for('search_cuisine')}}" class="waves-effect waves-light btn hoverable col s12"><i class="fas fa-utensils"></i> Cuisine</a>
-        </div>
-        <div class="row">
-            <img src="https://c.pxhere.com/photos/2d/99/sushi_sashimi_eat_restaurant_delicacy_dine_fish_rice-760717.jpg!d" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>
-        </div>
-    </div>
+    <!--<div class="card-panel col s12 m6">-->
+    <!--    <div class="row">-->
+    <!--        <a href="{{url_for('search_cuisine')}}" class="waves-effect waves-light btn hoverable col s12"><i class="fas fa-utensils"></i> Cuisine</a>-->
+    <!--    </div>-->
+    <!--    <div class="row">-->
+    <!--        <img src="https://c.pxhere.com/photos/2d/99/sushi_sashimi_eat_restaurant_delicacy_dine_fish_rice-760717.jpg!d" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>-->
+    <!--    </div>-->
+    <!--</div>-->
 </div>
 
 <div class="row">
-    <div class="card-panel col s12 m6">
-        <div class="row">
-            <a href="{{url_for('search_ingredient')}}" class="waves-effect waves-light btn yellow darken-1 hoverable col s12"><i class="fas fa-cheese"></i> Ingredient</a>
-        </div>
-        <div class="row">
-            <img src="https://www.goodfreephotos.com/cache/food/cooking-ingredients-with-avocado-mushrooms-eggs.jpg" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>
+    <div class="col s12 m6">
+        <h4 class="header">Ingredients</h4>
+        <div class="card horizontal">
+            <div class="card-image valign-wrapper">
+                <img src="https://cdn.pixabay.com/photo/2017/08/06/01/19/ingredients-2587407_1280.jpg">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Click below search recipes by their ingredients.</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{url_for('search_ingredient')}}">Ingredient</a>
+                </div>
+            </div>
         </div>
     </div>
+    
+    <div class="col s12 m6">
+        <h4 class="header">Username</h4>
+        <div class="card horizontal">
+            <div class="card-image valign-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hello_my_name_is_sticker.svg/900px-Hello_my_name_is_sticker.svg.png">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Click below search recipes by their author's username.</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{url_for('search_username')}}">Username</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--<div class="card-panel col s12 m6">-->
+    <!--    <div class="row">-->
+    <!--        <a href="{{url_for('search_ingredient')}}" class="waves-effect waves-light btn yellow darken-1 hoverable col s12"><i class="fas fa-cheese"></i> Ingredient</a>-->
+    <!--    </div>-->
+    <!--    <div class="row">-->
+    <!--        <img src="https://www.goodfreephotos.com/cache/food/cooking-ingredients-with-avocado-mushrooms-eggs.jpg" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>-->
+    <!--    </div>-->
+    <!--</div>-->
 
-    <div class="card-panel col s12 m6">
-        <div class="row">
-            <a href="{{url_for('search_username')}}" class="waves-effect waves-light btn blue darken-1 hoverable col s12"><i class="fas fa-signature"></i> Username</a>
-        </div>
-        <div class="row">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hello_my_name_is_sticker.svg/900px-Hello_my_name_is_sticker.svg.png" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>
-        </div>
-    </div>
+    <!--<div class="card-panel col s12 m6">-->
+    <!--    <div class="row">-->
+    <!--        <a href="{{url_for('search_username')}}" class="waves-effect waves-light btn blue darken-1 hoverable col s12"><i class="fas fa-signature"></i> Username</a>-->
+    <!--    </div>-->
+    <!--    <div class="row">-->
+    <!--        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hello_my_name_is_sticker.svg/900px-Hello_my_name_is_sticker.svg.png" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>-->
+    <!--    </div>-->
+    <!--</div>-->
 </div>
 
 
