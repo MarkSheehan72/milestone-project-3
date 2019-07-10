@@ -1,6 +1,23 @@
-.card-title {
+.heading-font {
+    font-family: 'Dancing Script', cursive;
     font-size: 18px;
 }
+
+.title-font {
+    font-family: 'Dancing Script', cursive;
+    font-size: 18px;
+}
+
+.heading-font {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 18px;
+}
+
+.body-text-font {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 14px;
+}
+
 
 /*a {*/
 /*    font-size: 16px;*/

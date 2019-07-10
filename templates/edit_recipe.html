@@ -47,34 +47,32 @@
         <div class="row">
             <h5><strong>Ingredients:</strong></h5>
         </div>
+        {% for ingredient in recipe.ingredients.name %} 
+        {% for amount in recipe.ingredients.amount %} 
+        {% for allergen in recipe.ingredients.allergen %}
+        {% if ingredient != "", amount != "", allergen != "" %}
         <div class="row">
-            <ul>
-            {% for ingredient in recipe.ingredients.name %}
-            <li>
             <div class="input-field col s12 m6">
                 <i class="fas fa-cheese prefix"></i>
                 <input name="ingredient_name" id="ingredient_name" type="text" class="validate" value="{{ingredient}}">
                 <label for="icon_telephone">Ingredient</label>
                 </ul>
             </div>
-            </li>
-            {% endfor %}
-            </ul>
-            {% for amount in recipe.ingredients.amount %}
             <div class="input-field col s6 m2">
                 <i class="fas fa-sort-amount-up prefix"></i>
                 <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate" value="{{amount}}">
                 <label for="icon_telephone">Amount</label>
             </div>
-            {% endfor %}
-            {% for allergen in recipe.ingredients.allergen %}
             <div class="input-field col s6 m4">
                 <i class="fas fa-allergies prefix"></i>
                 <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate" value="{{allergen}}">
                 <label for="icon_telephone">Allergen</label>
             </div>
-            {% endfor %}
         </div>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+        {% endfor %}
         <div class="divider"></div>
         <div class="row">
             <div class="input-field col s12 m6">
@@ -83,7 +81,7 @@
                 <label for="icon_telephone">Ingredient</label>
             </div>
             <div class="input-field col s6 m2">
-                <i class="fas fa-sort-amount-up prefix">subject</i>
+                <i class="fas fa-sort-amount-up prefix"></i>
                 <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
                 <label for="icon_telephone">Amount</label>
             </div>
