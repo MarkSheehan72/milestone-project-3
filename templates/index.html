@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content%}
 <div class="row">
-    <h2 class="center-align">Welcome to Cook Book!</h2>
+    <h2 class="center-align title-font">Welcome to Cook Book!</h2>
     <!--<p>This is your one stop shop for recipes to try on the fly. Our app allows our users to share their own recipes and find recipes already uploaded. The more you share, there more that is there for you all to access. So please enjoy, have a look at some-->
     <!--    of the recipes already available, and feel free to share your own favourite recipes. Sharing is caring!</p>-->
 </div>
@@ -12,8 +12,8 @@
               <img src="https://images.pexels.com/photos/342019/pexels-photo-342019.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             </div>
             <div class="card-content">
-                <span class="card-title heading-font">Find a recipe</span>
-                <p class="body-text-font">Click below to find a recipe on this site.</p>
+                <span class="card-title">Find a recipe</span>
+                <p>Click below to find a recipe on this site.</p>
             </div>
             <div class="card-action red darken-1 center-align">
               <a href="{{url_for('get_recipes')}}">Find a recipe</a>
@@ -27,8 +27,8 @@
               <img src="https://storage.needpix.com/rsynced_images/recipe-575434_1280.png">
             </div>
             <div class="card-content">
-                <span class="card-title heading-font">Add a recipe</span>
-                <p class="body-text-font">Click below to add a recipe to our site.</p>
+                <span class="card-title">Add a recipe</span>
+                <p>Click below to add a recipe to our site.</p>
             </div>
             <div class="card-action blue darken-1 center-align">
               <a href="{{url_for('add_recipe')}}">Add a recipe</a>
@@ -38,7 +38,7 @@
 </div>
 
 <div class="row">
-<h3 class="header center">Some sample recipes:</h3>
+    <h3 class="header center">Some sample recipes:</h3>
     <div class="row">
         {% for recipe in recipes %}
         {% if loop.index < 5 %} 
@@ -64,7 +64,8 @@
                 </div>
             </div>
         </div>
-        {% endif %} {% endfor %}
+        {% endif %} 
+        {% endfor %}
     </div>
 </div>
 
