@@ -5,18 +5,16 @@
 
 .title-font {
     font-family: 'Dancing Script', cursive;
-    font-size: 18px;
 }
 
-.heading-font {
+.standard-font {
     font-family: 'Source Serif Pro', serif;
-    font-size: 18px;
 }
 
-.body-text-font {
-    font-family: 'Source Serif Pro', serif;
-    font-size: 14px;
-}
+
+.parallax-container {
+      height: 350px;
+    }
 
 
 /*a {*/

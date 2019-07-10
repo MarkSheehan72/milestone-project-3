@@ -1,18 +1,22 @@
 {% extends 'base.html' %} {% block content%}
-<div class="row">
-    <h2 class="center-align title-font">Welcome to Cook Book!</h2>
-    <!--<p>This is your one stop shop for recipes to try on the fly. Our app allows our users to share their own recipes and find recipes already uploaded. The more you share, there more that is there for you all to access. So please enjoy, have a look at some-->
-    <!--    of the recipes already available, and feel free to share your own favourite recipes. Sharing is caring!</p>-->
+<div class="parallax-container">
+    <br></br>
+    <div class="row">
+        <h2 class="right-align title-font">Welcome to Cook Book!</h2>
+        <p class="col s4 offset-s8 heading-font">Where you are the author!</p>
+    </div>
+    <div class="parallax"><img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></div>
 </div>
 
 <div class="row">
+    <h3 class="title-font center">Get started here:</h3>
     <div class="col s12 m6">
         <div class="card medium">
             <div class="card-image">
               <img src="https://images.pexels.com/photos/342019/pexels-photo-342019.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             </div>
             <div class="card-content">
-                <span class="card-title">Find a recipe</span>
+                <span class="card-title standard-font">Find a recipe</span>
                 <p>Click below to find a recipe on this site.</p>
             </div>
             <div class="card-action red darken-1 center-align">
@@ -38,7 +42,7 @@
 </div>
 
 <div class="row">
-    <h3 class="header center">Some sample recipes:</h3>
+    <h3 class="title-font center">Some sample recipes:</h3>
     <div class="row">
         {% for recipe in recipes %}
         {% if loop.index < 5 %} 
