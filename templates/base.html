@@ -29,7 +29,7 @@
         </ul>
         <nav>
             <div class="nav-wrapper blue lighten-3">
-                <a href="{{url_for('index')}}" class="brand-logo heading-font">Cook Book</a>
+                <a href="{{url_for('index')}}" class="brand-logo title-font">Cook Book</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{url_for('index')}}">Home</a></li>
@@ -38,7 +38,7 @@
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="#!">Find a Recipe</a></li>
+                    <li><a href="{{url_for('get_recipes')}}">Find a Recipe</a></li>
                     <li><a href="{{url_for('add_recipe')}}">Add a Recipe</a></li>
                 </ul>
             </div>

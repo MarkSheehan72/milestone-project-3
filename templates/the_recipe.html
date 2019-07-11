@@ -1,7 +1,4 @@
-{% extends 'base.html' %} 
-{% block content%} 
-
-{% for recipe in recipe %}
+{% extends 'base.html' %} {% block content%} {% for recipe in recipe %}
 
 <!--<div class="row">-->
 <!--    <div class="card-panel col s4">-->
@@ -14,57 +11,83 @@
 <!--    </div>-->
 <!--</div>-->
 
+<!--<div class="row">-->
+<!--    <div class="col s4">-->
+<!--        <div class="card">-->
+<!--            <div class="card-image">-->
+<!--                <img src="{{recipe.image}}">-->
+<!--                <span class="card-title title-font blue-text text-lighten-3 blue-grey lighten-5">{{recipe.recipe_title.capitalize()}}</span>-->
+<!--            </div>-->
+<!--            <div class="card-content">-->
+<!--                <p>Written by {{recipe.user.name.capitalize()}} ({{recipe.user.country.capitalize()}})</p>-->
+<!--                <p>Views: {{recipe.views}}-->
+<!--                <p>{{recipe.description}}</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="col s8">-->
+<!--        <div class="card">-->
+<!--            <div class="card-content">-->
+<!--                <h3 class="standard-font">Ingredients</h3>-->
+<!--                <p></p>-->
+<!--            </div>-->
+<!--            <div class="card-action">-->
+<!--                <a href="#">This is a link</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
 <div class="card-panel">
     <div class="row">
         <div class="col s8">
-            <h2>{{recipe.recipe_title.capitalize()}}</h2>
+            <h2 class="title-font center blue-text text-lighten-3">{{recipe.recipe_title.capitalize()}}</h2>
+            <div class="divider"></div>
             <h5 class="col s8">By {{recipe.user.name.capitalize()}} ({{recipe.user.country.capitalize()}})</h5>
-            <h5 class="col s4"><i class="material-icons">visibility</i> {{recipe.views}}</h5>
+            <h5 class="col s4">Views: {{recipe.views}}</h5>
         </div>
         <div class="col s4">
             <img src="{{recipe.image}}" class="col s12"></img>
         </div>
     </div>
-    <div class="divider"></div>
+</div>
+<div class="card-panel">
     <div class="row">
-        <div class="col s12 m6">
+        <div class="col s8 m4">
             <h5><strong>Ingredients:</strong></h5>
             <ul class="col s6">
-            {% for ingredient in recipe.ingredients.name %}
-                {% if ingredient != ""%}
-                    <li style="list-style-type: circle">{{ingredient.capitalize()}}</li>
-                {% endif %}
-            {% endfor %}
+                {% for ingredient in recipe.ingredients.name %} {% if ingredient != ""%}
+                <li style="list-style-type: circle">{{ingredient.capitalize()}}</li>
+                {% endif %} {% endfor %}
             </ul>
             <ul class="col s3">
-            {% for amount in recipe.ingredients.amount %}
-                {% if amount != ""%}
-                    <li>{{amount.capitalize()}}</li>
-                {% endif %}
-            {% endfor %}
+                {% for amount in recipe.ingredients.amount %} {% if amount != ""%}
+                <li>{{amount.capitalize()}}</li>
+                {% endif %} {% endfor %}
             </ul>
-            <ul class="col s3">
-            {% for allergen in recipe.ingredients.allergen %}
-                {% if allergen != ""%}
-                    <li><strong>{{allergen.capitalize()}}</strong></li>
-                {% endif %}
-            {% endfor %}
+        </div>
+        <div class="col s4 m2">
+            <h5><strong>Allergens:</strong></h5>
+            <ul>
+                {% for allergen in recipe.ingredients.allergen %} {% if allergen != ""%}
+                <li><strong>{{allergen.capitalize()}}</strong></li>
+                {% endif %} {% endfor %}
             </ul>
         </div>
         <div class="col s12 m6">
             <h5><strong>Method:</strong></h5>
             <ul>
-            {% for method in recipe.method %}
-                {% if method != ""%}
+                {% for method in recipe.method %} {% if method != ""%}
                 <li>{{method.capitalize()}}</li>
-                {% endif %}
-            {% endfor %}
+                {% endif %} {% endfor %}
             </ul>
         </div>
     </div>
     <div class="row">
-        <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn blue darken-1 hoverable col s6"><i class="material-icons">search</i> Edit this recipe.</a>
-        <a href="#modal1" class="waves-effect waves-light btn red darken-1 modal-trigger hoverable col s6"><i class="material-icons">search</i> Delete this recipe.</a>
+        <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn blue lighten-3 hoverable col s8 m4 offset-s2 offset-m1"><i class="fas fa-exchange-alt"></i> Edit this recipe.</a>
+        <a href="#modal1" class="waves-effect waves-light btn red darken-1 modal-trigger hoverable col s8 m4 offset-s2 offset-m1"><i class="far fa-trash-alt"></i> Delete this recipe.</a>
         <div id="modal1" class="modal bottom-sheet">
             <div class="modal-content">
                 <h4>Delete this recipe.</h4>
@@ -81,4 +104,3 @@
 </div>
 
 {% endfor %} {% endblock %}
-

@@ -1,15 +1,14 @@
 {% extends 'base.html' %} {% block content%}
 <div class="parallax-container">
-    <br></br>
     <div class="row">
-        <h2 class="right-align title-font">Welcome to Cook Book!</h2>
-        <p class="col s4 offset-s8 heading-font">Where you are the author!</p>
+        <h2 class="col s6 m4 offset-s5 offset-m7 title-font blue-text text-lighten-3">Welcome to Cook Book!</h2>
+        <h5 class="col s6 m4 offset-s5 offset-m7">Where you are the author!</h5>
     </div>
     <div class="parallax"><img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></div>
 </div>
 
 <div class="row">
-    <h3 class="title-font center">Get started here:</h3>
+    <h3 class="title-font center blue-text text-lighten-3">Get started here:</h3>
     <div class="col s12 m6">
         <div class="card medium">
             <div class="card-image">
@@ -19,8 +18,8 @@
                 <span class="card-title standard-font">Find a recipe</span>
                 <p>Click below to find a recipe on this site.</p>
             </div>
-            <div class="card-action red darken-1 center-align">
-              <a href="{{url_for('get_recipes')}}">Find a recipe</a>
+            <div class="card-action red darken-1 center-align hoverable">
+              <a href="{{url_for('get_recipes')}}" class="title-font white-text">Find a recipe</a>
             </div>
         </div>
     </div>
@@ -31,30 +30,30 @@
               <img src="https://storage.needpix.com/rsynced_images/recipe-575434_1280.png">
             </div>
             <div class="card-content">
-                <span class="card-title">Add a recipe</span>
+                <span class="card-title standard-font">Add a recipe</span>
                 <p>Click below to add a recipe to our site.</p>
             </div>
-            <div class="card-action blue darken-1 center-align">
-              <a href="{{url_for('add_recipe')}}">Add a recipe</a>
+            <div class="card-action blue darken-1 center-align hoverable">
+              <a href="{{url_for('add_recipe')}}" class="title-font white-text">Add a recipe</a>
             </div>
         </div>
     </div>
 </div>
 
 <div class="row">
-    <h3 class="title-font center">Some sample recipes:</h3>
+    <h3 class="title-font center blue-text text-lighten-3">Some sample recipes:</h3>
     <div class="row">
         {% for recipe in recipes %}
         {% if loop.index < 5 %} 
-        <div class="col s12 m12 l6">
+        <div class="col s12 m12 l6 ">
             <div class="card horizontal">
-                    <div class="card-image">
-                        {% if recipe.image != "" %}
-                            <img src="{{recipe.image}}" width="400" height="200">
-                        {% else %}
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" class="col s8 offset-s2 responsive-img"></img>
-                        {% endif %}
-                    </div>
+                <div class="card-image valign-wrapper">
+                    {% if recipe.image != "" %}
+                        <img src="{{recipe.image}}">
+                    {% else %}
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" class="col s8 offset-s2 responsive-img"></img>
+                    {% endif %}
+                </div>
                 <div class="card-stacked">
                     <div class=center-align>
                         <h5 class="card-title">{{recipe.recipe_title}}</h5>
