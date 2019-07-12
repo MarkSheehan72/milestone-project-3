@@ -46,7 +46,7 @@
         {% for recipe in recipes %}
         {% if loop.index < 5 %} 
         <div class="col s12 m12 l6 ">
-            <div class="card horizontal">
+            <div class="card horizontal" height="200px">
                 <div class="card-image valign-wrapper">
                     {% if recipe.image != "" %}
                         <img src="{{recipe.image}}">

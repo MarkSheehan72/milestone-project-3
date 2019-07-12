@@ -18,6 +18,10 @@
     background-color:#475;
     overflow:scroll;
     }
+    
+.small{
+    height: 200px;
+}
 
 
 /*.small-recipe-card {*/
