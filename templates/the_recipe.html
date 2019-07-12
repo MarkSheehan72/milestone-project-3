@@ -55,20 +55,22 @@
 </div>
 <div class="card-panel">
     <div class="row">
-        <div class="col s8 m4">
+        <div class="col s12 m9">
             <h5><strong>Ingredients:</strong></h5>
-            <ul class="col s6">
-                {% for ingredient in recipe.ingredients.name %} {% if ingredient != ""%}
+            <ul class="col s6 l4">
+                {% for ingredient in recipe.ingredients.name %}
+                {% if ingredient != ""%}
                 <li style="list-style-type: circle">{{ingredient.capitalize()}}</li>
                 {% endif %} {% endfor %}
             </ul>
-            <ul class="col s3">
-                {% for amount in recipe.ingredients.amount %} {% if amount != ""%}
+            <ul class="col s6 l4">
+                {% for amount in recipe.ingredients.amount %} 
+                {% if amount != ""%}
                 <li>{{amount.capitalize()}}</li>
                 {% endif %} {% endfor %}
             </ul>
         </div>
-        <div class="col s4 m2">
+        <div class="col s12 m3">
             <h5><strong>Allergens:</strong></h5>
             <ul>
                 {% for allergen in recipe.ingredients.allergen %} {% if allergen != ""%}
@@ -76,7 +78,10 @@
                 {% endif %} {% endfor %}
             </ul>
         </div>
-        <div class="col s12 m6">
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="col s12">
             <h5><strong>Method:</strong></h5>
             <ul>
                 {% for method in recipe.method %} {% if method != ""%}

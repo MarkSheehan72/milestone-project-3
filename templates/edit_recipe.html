@@ -47,38 +47,41 @@
         <div class="row">
             <h5><strong>Ingredients:</strong></h5>
         </div>
-        {% for ingredient in recipe.ingredients.name %} 
-        {% for amount in recipe.ingredients.amount %} 
-        {% for allergen in recipe.ingredients.allergen %}
-        {% if ingredient != ""%}
-        {% if amount != ""%} 
-        {% if allergen != "" %}
         <div class="row">
             <div class="input-field col s12 m6">
+                {% for ingredient in recipe.ingredients.name %}
+                {% if ingredient != ""%}
                 <i class="fas fa-cheese prefix"></i>
                 <input name="ingredient_name" id="ingredient_name" type="text" class="validate" value="{{ingredient}}">
                 <label for="icon_telephone">Ingredient</label>
-                </ul>
+                {% endif %}
+                {% endfor %}
             </div>
             <div class="input-field col s6 m2">
+                {% for amount in recipe.ingredients.amount %}
+                {% if ingredient != ""%}
+                {% if amount != ""%}
                 <i class="fas fa-sort-amount-up prefix"></i>
                 <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate" value="{{amount}}">
                 <label for="icon_telephone">Amount</label>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
             </div>
             <div class="input-field col s6 m4">
+                {% for allergen in recipe.ingredients.allergen %}
+                {% if ingredient != ""%}
                 <i class="fas fa-allergies prefix"></i>
                 <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate" value="{{allergen}}">
                 <label for="icon_telephone">Allergen</label>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
         <div class="divider"></div>
-        {% endif %}
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% endfor %}
-        {% endfor %}
-        <div class="divider"></div>
+        <div class="row">
+            <h5><strong>Add additional ingredients:</strong></h5>
+        </div>
         <div class="row">
             <div class="input-field col s12 m6">
                 <i class="fas fa-cheese prefix"></i>
@@ -128,6 +131,9 @@
             </div>
             {% endif %}
             {% endfor %}
+        </div>
+        <div class="row">
+            <h5><strong>Add additional method steps:</strong></h5>
         </div>
         <div class="row">
             <div class="input-field col s12">

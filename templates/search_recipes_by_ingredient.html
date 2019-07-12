@@ -8,6 +8,7 @@
 
 <div class="row">
 {% for recipe in ingredient_search %}
+{% recipe.sort(key=views, reverse=true) %}
 
     <div class="col s12 m6 l4">
         <div class="card small">
