@@ -7,6 +7,9 @@
     <p><strong>Note:</strong> Please write the ingredients rows in lowercase.</p>
 </div>
 
+
+<!--Edit recipe form:-->
+<!--Users will be able to use this form to edit a selected recipe's details.-->
 <div class="row">
     <form action="{{url_for('insert_recipe')}}" method="POST" class="col s12">
         <div class="row">
@@ -47,38 +50,67 @@
         <div class="row">
             <h5><strong>Ingredients:</strong></h5>
         </div>
-        <div class="row">
-            <div class="input-field col s12 m6">
-                {% for ingredient in recipe.ingredients.name %}
-                {% if ingredient != ""%}
-                <i class="fas fa-cheese prefix"></i>
-                <input name="ingredient_name" id="ingredient_name" type="text" class="validate" value="{{ingredient}}">
-                <label for="icon_telephone">Ingredient</label>
-                {% endif %}
-                {% endfor %}
-            </div>
-            <div class="input-field col s6 m2">
-                {% for amount in recipe.ingredients.amount %}
-                {% if ingredient != ""%}
-                {% if amount != ""%}
-                <i class="fas fa-sort-amount-up prefix"></i>
-                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate" value="{{amount}}">
-                <label for="icon_telephone">Amount</label>
-                {% endif %}
-                {% endif %}
-                {% endfor %}
-            </div>
-            <div class="input-field col s6 m4">
+        {% for name in recipe.ingredients.name %}
+            {% for amount in recipe.ingredients.amount %}
                 {% for allergen in recipe.ingredients.allergen %}
-                {% if ingredient != ""%}
-                <i class="fas fa-allergies prefix"></i>
-                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate" value="{{allergen}}">
-                <label for="icon_telephone">Allergen</label>
-                {% endif %}
+
+                        {% if name != "" %}
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <i class="fas fa-cheese prefix"></i>
+                                    <input name="ingredient_name" id="ingredient_name" type="text" class="validate" value="{{name}}">
+                                    <label for="icon_telephone">Ingredient</label>
+                                </div>
+                                <div class="input-field col s6 m2">
+                                    <i class="fas fa-sort-amount-up prefix"></i>
+                                    <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate" value="{{amount}}">
+                                    <label for="icon_telephone">Amount</label>
+                                </div>
+                                <div class="input-field col s6 m4">
+                                    <i class="fas fa-allergies prefix"></i>
+                                    <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate" value="{{allergen}}">
+                                    <label for="icon_telephone">Allergen</label>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                        {% endif %}
+
                 {% endfor %}
-            </div>
-        </div>
-        <div class="divider"></div>
+            {% endfor %}
+        {% endfor %}
+        
+        <!--<div class="row">-->
+        <!--    <div class="input-field col s12 m6">-->
+        <!--        {% for ingredient in recipe.ingredients.name %}-->
+        <!--        {% if ingredient != ""%}-->
+        <!--        <i class="fas fa-cheese prefix"></i>-->
+        <!--        <input name="ingredient_name" id="ingredient_name" type="text" class="validate" value="{{ingredient}}">-->
+        <!--        <label for="icon_telephone">Ingredient</label>-->
+        <!--        {% endif %}-->
+        <!--        {% endfor %}-->
+        <!--    </div>-->
+        <!--    <div class="input-field col s6 m2">-->
+        <!--        {% for amount in recipe.ingredients.amount %}-->
+        <!--        {% if ingredient != ""%}-->
+        <!--        {% if amount != ""%}-->
+        <!--        <i class="fas fa-sort-amount-up prefix"></i>-->
+        <!--        <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate" value="{{amount}}">-->
+        <!--        <label for="icon_telephone">Amount</label>-->
+        <!--        {% endif %}-->
+        <!--        {% endif %}-->
+        <!--        {% endfor %}-->
+        <!--    </div>-->
+        <!--    <div class="input-field col s6 m4">-->
+        <!--        {% for allergen in recipe.ingredients.allergen %}-->
+        <!--        {% if ingredient != ""%}-->
+        <!--        <i class="fas fa-allergies prefix"></i>-->
+        <!--        <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate" value="{{allergen}}">-->
+        <!--        <label for="icon_telephone">Allergen</label>-->
+        <!--        {% endif %}-->
+        <!--        {% endfor %}-->
+        <!--    </div>-->
+        <!--</div>-->
+        <!--<div class="divider"></div>-->
         <div class="row">
             <h5><strong>Add additional ingredients:</strong></h5>
         </div>

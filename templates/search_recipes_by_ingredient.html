@@ -1,6 +1,9 @@
 {% extends 'base.html' %} 
 {% block content%}
 
+
+<!--Search results from ingredients search:-->
+<!--Users will receive the search results from their search of an ingredient.-->
 <div class="row">
     <h2 class="center-align title-font center blue-text text-lighten-3">Search results!</h2>
     <p class="center-align">Click on the image of a recipe below to learn more about it, and see the link to the full recipe:</p>
@@ -8,7 +11,6 @@
 
 <div class="row">
 {% for recipe in ingredient_search %}
-{% recipe.sort(key=views, reverse=true) %}
 
     <div class="col s12 m6 l4">
         <div class="card small">

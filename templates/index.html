@@ -1,4 +1,7 @@
 {% extends 'base.html' %} {% block content%}
+
+<!--Index parallax:-->
+<!--Parallax containing a welcome message for users..-->
 <div class="parallax-container">
     <div class="row">
         <h2 class="col s6 m4 offset-s5 offset-m7 title-font blue-text text-lighten-3">Welcome to Cook Book!</h2>
@@ -7,6 +10,10 @@
     <div class="parallax"><img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></div>
 </div>
 
+
+<!--Main action cards:-->
+<!--Two main calls to action on the index page:-->
+<!--One for searching recipes and one for adding a recipe.-->
 <div class="row">
     <h3 class="title-font center blue-text text-lighten-3">Get started here:</h3>
     <div class="col s12 m6">
@@ -40,6 +47,10 @@
     </div>
 </div>
 
+
+<!--Sample recipe cards:-->
+<!--This will take 4 recipes from the database and display them on the index page.-->
+<!--This is intended as a "need some inspiration" style section on the home page.-->
 <div class="row">
     <h3 class="title-font center blue-text text-lighten-3">Some sample recipes:</h3>
     <div class="row">
@@ -56,10 +67,10 @@
                 </div>
                 <div class="card-stacked">
                     <div class=center-align>
-                        <h5 class="card-title">{{recipe.recipe_title}}</h5>
+                        <h5 class="card-title standard-font">{{recipe.recipe_title.capitalize()}}</h5>
                     </div>
                     <div class="card-content class-size">
-                        <p id="description">{{recipe.recipe_description}}</p>
+                        <p id="description">{{recipe.recipe_description.capitalize()}}</p>
                     </div>
                     <div class="card-action">
                         <a href="{{url_for('the_recipe', recipe_id=recipe._id)}}"><i class="material-icons">local_dining</i> Go to recipe!</a>

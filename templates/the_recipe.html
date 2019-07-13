@@ -39,17 +39,25 @@
 <!--</div>-->
 
 
+<!--The recipe:-->
+<!--Here users are presented with the details of the recipe they selected.-->
 
 <div class="card-panel">
     <div class="row">
-        <div class="col s8">
+        <div class="col s12 l8">
             <h2 class="title-font center blue-text text-lighten-3">{{recipe.recipe_title.capitalize()}}</h2>
             <div class="divider"></div>
-            <h5 class="col s8">By {{recipe.user.name.capitalize()}} ({{recipe.user.country.capitalize()}})</h5>
-            <h5 class="col s4">Views: {{recipe.views}}</h5>
+            <h5 class="col s6 center-align">By {{recipe.user.name.capitalize()}} ({{recipe.user.country.capitalize()}})</h5>
+            <h5 class="col s6 center-align">Views: {{recipe.views}}</h5>
         </div>
-        <div class="col s4">
+        <div class="col s12 l4">
             <img src="{{recipe.image}}" class="col s12"></img>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h5>About:</h5>
+            <p>{{recipe.recipe_description}}</p>
         </div>
     </div>
 </div>
@@ -90,6 +98,10 @@
             </ul>
         </div>
     </div>
+    
+    <!--Delete recipe modal:-->
+    <!--If a user selects to delete a menu, they will be presented with a modal to confirm their choice.-->
+    <!--This gives users a "second chance" if they click the delete button by accident.-->
     <div class="row">
         <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn blue lighten-3 hoverable col s8 m4 offset-s2 offset-m1"><i class="fas fa-exchange-alt"></i> Edit this recipe.</a>
         <a href="#modal1" class="waves-effect waves-light btn red darken-1 modal-trigger hoverable col s8 m4 offset-s2 offset-m1"><i class="far fa-trash-alt"></i> Delete this recipe.</a>
