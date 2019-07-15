@@ -11,7 +11,7 @@
 <!--Edit recipe form:-->
 <!--Users will be able to use this form to edit a selected recipe's details.-->
 <div class="row">
-    <form action="{{url_for('insert_recipe')}}" method="POST" class="col s12">
+    <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" class="col s12">
         <div class="row">
             <h5><strong>Recipe Details:</strong></h5>
             <div class="input-field col s12">
@@ -50,33 +50,29 @@
         <div class="row">
             <h5><strong>Ingredients:</strong></h5>
         </div>
-        {% for name in recipe.ingredients.name %}
-            {% for amount in recipe.ingredients.amount %}
-                {% for allergen in recipe.ingredients.allergen %}
+        {% for ingredient in recipe.ingredients %}
 
-                        {% if name != "" %}
                             <div class="row">
                                 <div class="input-field col s12 m6">
                                     <i class="fas fa-cheese prefix"></i>
-                                    <input name="ingredient_name" id="ingredient_name" type="text" class="validate" value="{{name}}">
+                                    <input name="ingredient_name" id="ingredient_name" type="text" class="validate" value="{{ingredient.name}}">
                                     <label for="icon_telephone">Ingredient</label>
                                 </div>
                                 <div class="input-field col s6 m2">
                                     <i class="fas fa-sort-amount-up prefix"></i>
-                                    <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate" value="{{amount}}">
+                                    <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate" value="{{ingredient.amount}}">
                                     <label for="icon_telephone">Amount</label>
                                 </div>
                                 <div class="input-field col s6 m4">
                                     <i class="fas fa-allergies prefix"></i>
-                                    <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate" value="{{allergen}}">
+                                    <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate" value="{{ingredient.allergen}}">
                                     <label for="icon_telephone">Allergen</label>
                                 </div>
                             </div>
                             <div class="divider"></div>
-                        {% endif %}
 
-                {% endfor %}
-            {% endfor %}
+
+
         {% endfor %}
         
         <!--<div class="row">-->
@@ -111,44 +107,7 @@
         <!--    </div>-->
         <!--</div>-->
         <!--<div class="divider"></div>-->
-        <div class="row">
-            <h5><strong>Add additional ingredients:</strong></h5>
-        </div>
-        <div class="row">
-            <div class="input-field col s12 m6">
-                <i class="fas fa-cheese prefix"></i>
-                <input name="ingredient_name" id="ingredient_name" type="text" class="validate">
-                <label for="icon_telephone">Ingredient</label>
-            </div>
-            <div class="input-field col s6 m2">
-                <i class="fas fa-sort-amount-up prefix"></i>
-                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
-                <label for="icon_telephone">Amount</label>
-            </div>
-            <div class="input-field col s6 m4">
-                <i class="fas fa-allergies prefix"></i>
-                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate">
-                <label for="icon_telephone">Allergen</label>
-            </div>
-        </div>
-        <div class="divider"></div>
-        <div class="row">
-            <div class="input-field col s12 m6">
-                <i class="fas fa-cheese prefix"></i>
-                <input name="ingredient_name" id="ingredient_name" type="text" class="validate">
-                <label for="icon_telephone">Ingredient</label>
-            </div>
-            <div class="input-field col s6 m2">
-                <i class="fas fa-sort-amount-up prefix"></i>
-                <input name="ingredient_amount" id="ingredient_amount" type="text" class="validate">
-                <label for="icon_telephone">Amount</label>
-            </div>
-            <div class="input-field col s6 m4">
-                <i class="fas fa-allergies prefix"></i>
-                <input name="ingredient_allergen" id="ingredient_allergen" type="text" class="validate">
-                <label for="icon_telephone">Allergen</label>
-            </div>
-        </div>
+        
         <div class="row">
             <h5><strong>Method:</strong></h5>
             <p>Number steps and write one step per space in the form:</p>

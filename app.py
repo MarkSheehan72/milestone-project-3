@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo 
 from bson.objectid import ObjectId 
+from itertools import islice
 
 app = Flask(__name__) 
 
@@ -15,7 +16,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    recipes=mongo.db.recipes.find()
+    recipes=mongo.db.recipes.find().sort("views", -1)
     return render_template("index.html", recipes=recipes)
 
 
@@ -42,16 +43,65 @@ def insert_recipe():
             {'name': request.form.get('user_name').lower(),
             'country': request.form.get('user_country').lower()},
         'ingredients': 
-            {'name': request.form.getlist('ingredient_name'),
-            'amount': request.form.getlist('ingredient_amount'),
-            'allergen': request.form.getlist('ingredient_allergen')},
+            [
+                {
+                        'name': request.form.get('ingredient_name_1'),
+                        'amount': request.form.get('ingredient_amount_1'),
+                        'allergen': request.form.get('ingredient_allergen_1')
+                },
+                {
+                        'name': request.form.get('ingredient_name_2'),
+                        'amount': request.form.get('ingredient_amount_2'),
+                        'allergen': request.form.get('ingredient_allergen_2')
+                },
+                {
+                        'name': request.form.get('ingredient_name_3'),
+                        'amount': request.form.get('ingredient_amount_3'),
+                        'allergen': request.form.get('ingredient_allergen_3')
+                },
+                {
+                        'name': request.form.get('ingredient_name_4'),
+                        'amount': request.form.get('ingredient_amount_4'),
+                        'allergen': request.form.get('ingredient_allergen_4')
+                },
+                {
+                        'name': request.form.get('ingredient_name_5'),
+                        'amount': request.form.get('ingredient_amount_5'),
+                        'allergen': request.form.get('ingredient_allergen_5')
+                },
+                {
+                        'name': request.form.get('ingredient_name_6'),
+                        'amount': request.form.get('ingredient_amount_6'),
+                        'allergen': request.form.get('ingredient_allergen_6')
+                },
+                {
+                        'name': request.form.get('ingredient_name_7'),
+                        'amount': request.form.get('ingredient_amount_7'),
+                        'allergen': request.form.get('ingredient_allergen_7')
+                },
+                {
+                        'name': request.form.get('ingredient_name_8'),
+                        'amount': request.form.get('ingredient_amount_8'),
+                        'allergen': request.form.get('ingredient_allergen_8')
+                },
+                {
+                        'name': request.form.get('ingredient_name_9'),
+                        'amount': request.form.get('ingredient_amount_9'),
+                        'allergen': request.form.get('ingredient_allergen_9')
+                },
+                {
+                        'name': request.form.get('ingredient_name_10'),
+                        'amount': request.form.get('ingredient_amount_10'),
+                        'allergen': request.form.get('ingredient_allergen_10')
+                }
+            ],
         'method': request.form.getlist('recipe_method'),
         'image': request.form.get('image')
     })
     return redirect(url_for('thanks'))
 
 
-#////////////////////////////////////////////////Thanks you page - users are sent to this page after they submit a recipe.
+#////////////////////////////////////////////////Thank you page - users are sent to this page after they submit a recipe.
 #////////////////////////////////////////////////This gives users assured feedback that their recipe has been added.
 @app.route('/thanks')
 def thanks():
@@ -101,7 +151,7 @@ def search_username():
 def search_recipes_by_username():
     recipes=mongo.db.recipes.find()
     search = request.form.get('search_recipes_by_username').lower()
-    username_search = mongo.db.recipes.find({"user.name": {"$regex":search}})
+    username_search = mongo.db.recipes.find({"user.name": {"$regex":search}}).sort("views", -1)
     return render_template("search_recipes_by_username.html", recipes=recipes, username_search=username_search)
     
     
@@ -115,7 +165,7 @@ def search_cuisine():
 def search_recipes_by_cuisine():
     recipes=mongo.db.recipes.find()
     search = request.form.get('search_recipes_by_cuisine').lower()
-    cuisine_search = mongo.db.recipes.find({"recipe_cuisine": {"$regex":search}})
+    cuisine_search = mongo.db.recipes.find({"recipe_cuisine": {"$regex":search}}).sort("views", -1)
     return render_template("search_recipes_by_cuisine.html", recipes=recipes, cuisine_search=cuisine_search)
 
 
@@ -129,7 +179,7 @@ def search_ingredient():
 def search_recipes_by_ingredient():
     recipes=mongo.db.recipes.find()
     search = request.form.get('search_recipes_by_ingredient').lower()
-    ingredient_search = mongo.db.recipes.find({"ingredients.name": {"$regex":search}})
+    ingredient_search = mongo.db.recipes.find({"ingredients.name": {"$regex":search}}).sort("views", -1)
     return render_template("search_recipes_by_ingredient.html", recipes=recipes, ingredient_search=ingredient_search)
 
 
@@ -143,7 +193,7 @@ def search_recipe_title():
 def search_recipes_by_recipe_title():
     recipes=mongo.db.recipes.find()
     search = request.form.get('search_recipes_by_recipe_title').lower()
-    recipe_title_search = mongo.db.recipes.find({"recipe_title": {"$regex":search}})
+    recipe_title_search = mongo.db.recipes.find({"recipe_title": {"$regex":search}}).sort("views", -1)
     return render_template("search_recipes_by_recipe_title.html", recipes=recipes, recipe_title_search=recipe_title_search)
 
 
@@ -162,6 +212,43 @@ def the_recipe(recipe_id):
 def edit_recipe(recipe_id): 
     the_recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}) 
     return render_template('edit_recipe.html', recipe=the_recipe) 
+    
+@app.route('/update_recipe/<recipe_id>', methods=['POST'])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    
+    ingredients_name = request.form.getlist('ingredient_name')
+    ingredients_amount = request.form.getlist('ingredient_amount')
+    ingredients_allergen = request.form.getlist('ingredient_allergen')
+    
+    ingredients_array = []
+    for name, amount, allergen in islice(zip(ingredients_name, ingredients_amount, ingredients_allergen), 0, None):
+        temporary_object = {}
+        temporary_object.update({'name': name})
+        temporary_object.update({'amount': amount})
+        temporary_object.update({'allergen': allergen})
+        ingredients_array.append(temporary_object)
+    
+    recipes.update( {'_id': ObjectId(recipe_id)},
+    {
+        'recipe_title': request.form.get('recipe_title').lower(),
+        'recipe_description': request.form.get('recipe_description').lower(),
+        'recipe_cuisine': request.form.get('recipe_cuisine').lower(),
+        'user': 
+            {'name': request.form.get('user_name').lower(),
+            'country': request.form.get('user_country').lower()},
+        'ingredients': ingredients_array,
+        'method': request.form.getlist('recipe_method'),
+        'image': request.form.get('image')
+    })
+    return redirect(url_for('thanks_update'))
+    
+
+#////////////////////////////////////////////////Thank you (update) page - users are sent to this page after they edit a recipe.
+#////////////////////////////////////////////////This gives users assured feedback that their recipe has been edited.
+@app.route('/thanks_update')
+def thanks_update():
+    return render_template("thanks_update.html")
 
 
 #////////////////////////////////////////////////Delete recipe view:

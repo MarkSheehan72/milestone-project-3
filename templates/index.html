@@ -56,13 +56,13 @@
     <div class="row">
         {% for recipe in recipes %}
         {% if loop.index < 5 %} 
-        <div class="col s12 m12 l6 ">
-            <div class="card horizontal" height="200px">
+        <div class="col s12 m12 l6">
+            <div class="card horizontal">
                 <div class="card-image valign-wrapper">
                     {% if recipe.image != "" %}
                         <img src="{{recipe.image}}">
                     {% else %}
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" class="col s8 offset-s2 responsive-img"></img>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" class="responsive-img"></img>
                     {% endif %}
                 </div>
                 <div class="card-stacked">
@@ -71,6 +71,7 @@
                     </div>
                     <div class="card-content class-size">
                         <p id="description">{{recipe.recipe_description.capitalize()}}</p>
+                        <p><i class="material-icons">visibility</i> {{recipe.views}}</p>
                     </div>
                     <div class="card-action">
                         <a href="{{url_for('the_recipe', recipe_id=recipe._id)}}"><i class="material-icons">local_dining</i> Go to recipe!</a>
