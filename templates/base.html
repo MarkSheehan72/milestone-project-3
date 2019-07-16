@@ -49,10 +49,32 @@
 
 <!--Block content:-->
 <!--Div for the block content extended from other pages.-->
-    <div class="container">
-        {% block content %} {% endblock %}
+    <main>
+        <div class="container">
+            {% block content %} {% endblock %}
 
-    </div>
+        </div>
+    </main>
+    
+    <footer class="page-footer blue lighten-3">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Site by Mark Sheehan:</h5>
+                    <p>To see more of his work, click on the GitHub icon.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">My Github:</h5>
+                    <a href="https://github.com/MarkSheehan72"><i class="fab fa-github fa-2x white-text"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Copyright Mark Sheehan
+            </div>
+        </div>
+    </footer>
 
 <!--Javascript/JQuery content:-->
 <!--Linked Javascript content and JQuery functions from Materialize.-->

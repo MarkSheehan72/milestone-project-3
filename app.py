@@ -45,54 +45,54 @@ def insert_recipe():
         'ingredients': 
             [
                 {
-                        'name': request.form.get('ingredient_name_1'),
-                        'amount': request.form.get('ingredient_amount_1'),
-                        'allergen': request.form.get('ingredient_allergen_1')
+                        'name': request.form.get('ingredient_name_1').lower(),
+                        'amount': request.form.get('ingredient_amount_1').lower(),
+                        'allergen': request.form.get('ingredient_allergen_1').lower()
                 },
                 {
-                        'name': request.form.get('ingredient_name_2'),
-                        'amount': request.form.get('ingredient_amount_2'),
-                        'allergen': request.form.get('ingredient_allergen_2')
+                        'name': request.form.get('ingredient_name_2').lower(),
+                        'amount': request.form.get('ingredient_amount_2').lower(),
+                        'allergen': request.form.get('ingredient_allergen_2').lower()
                 },
                 {
-                        'name': request.form.get('ingredient_name_3'),
-                        'amount': request.form.get('ingredient_amount_3'),
-                        'allergen': request.form.get('ingredient_allergen_3')
+                        'name': request.form.get('ingredient_name_3').lower(),
+                        'amount': request.form.get('ingredient_amount_3').lower(),
+                        'allergen': request.form.get('ingredient_allergen_3').lower()
                 },
                 {
-                        'name': request.form.get('ingredient_name_4'),
-                        'amount': request.form.get('ingredient_amount_4'),
-                        'allergen': request.form.get('ingredient_allergen_4')
+                        'name': request.form.get('ingredient_name_4').lower(),
+                        'amount': request.form.get('ingredient_amount_4').lower(),
+                        'allergen': request.form.get('ingredient_allergen_4').lower()
                 },
                 {
-                        'name': request.form.get('ingredient_name_5'),
-                        'amount': request.form.get('ingredient_amount_5'),
-                        'allergen': request.form.get('ingredient_allergen_5')
+                        'name': request.form.get('ingredient_name_5').lower(),
+                        'amount': request.form.get('ingredient_amount_5').lower(),
+                        'allergen': request.form.get('ingredient_allergen_5').lower()
                 },
                 {
-                        'name': request.form.get('ingredient_name_6'),
-                        'amount': request.form.get('ingredient_amount_6'),
-                        'allergen': request.form.get('ingredient_allergen_6')
+                        'name': request.form.get('ingredient_name_6').lower(),
+                        'amount': request.form.get('ingredient_amount_6').lower(),
+                        'allergen': request.form.get('ingredient_allergen_6').lower()
                 },
                 {
-                        'name': request.form.get('ingredient_name_7'),
-                        'amount': request.form.get('ingredient_amount_7'),
-                        'allergen': request.form.get('ingredient_allergen_7')
+                        'name': request.form.get('ingredient_name_7').lower(),
+                        'amount': request.form.get('ingredient_amount_7').lower(),
+                        'allergen': request.form.get('ingredient_allergen_7').lower()
                 },
                 {
-                        'name': request.form.get('ingredient_name_8'),
-                        'amount': request.form.get('ingredient_amount_8'),
-                        'allergen': request.form.get('ingredient_allergen_8')
+                        'name': request.form.get('ingredient_name_8').lower(),
+                        'amount': request.form.get('ingredient_amount_8').lower(),
+                        'allergen': request.form.get('ingredient_allergen_8').lower()
                 },
                 {
-                        'name': request.form.get('ingredient_name_9'),
-                        'amount': request.form.get('ingredient_amount_9'),
-                        'allergen': request.form.get('ingredient_allergen_9')
+                        'name': request.form.get('ingredient_name_9').lower(),
+                        'amount': request.form.get('ingredient_amount_9').lower(),
+                        'allergen': request.form.get('ingredient_allergen_9').lower()
                 },
                 {
-                        'name': request.form.get('ingredient_name_10'),
-                        'amount': request.form.get('ingredient_amount_10'),
-                        'allergen': request.form.get('ingredient_allergen_10')
+                        'name': request.form.get('ingredient_name_10').lower(),
+                        'amount': request.form.get('ingredient_amount_10').lower(),
+                        'allergen': request.form.get('ingredient_allergen_10').lower()
                 }
             ],
         'method': request.form.getlist('recipe_method'),
@@ -217,18 +217,22 @@ def edit_recipe(recipe_id):
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     
+    #Get an array of each ingredient element: 
     ingredients_name = request.form.getlist('ingredient_name')
     ingredients_amount = request.form.getlist('ingredient_amount')
     ingredients_allergen = request.form.getlist('ingredient_allergen')
     
+    #Loops through each array and creates an object containing each ingredient's name, amount and allergen info.
+    #Then appends this collection of objects to an array (ingredients_array):
     ingredients_array = []
     for name, amount, allergen in islice(zip(ingredients_name, ingredients_amount, ingredients_allergen), 0, None):
         temporary_object = {}
-        temporary_object.update({'name': name})
-        temporary_object.update({'amount': amount})
-        temporary_object.update({'allergen': allergen})
+        temporary_object.update({'name': name.lower()})
+        temporary_object.update({'amount': amount.lower()})
+        temporary_object.update({'allergen': allergen.lower()})
         ingredients_array.append(temporary_object)
     
+    #Updates the recipe fields:
     recipes.update( {'_id': ObjectId(recipe_id)},
     {
         'recipe_title': request.form.get('recipe_title').lower(),

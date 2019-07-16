@@ -51,7 +51,11 @@
             <h5 class="col s6 center-align">Views: {{recipe.views}}</h5>
         </div>
         <div class="col s12 l4">
-            <img src="{{recipe.image}}" class="col s12"></img>
+            {% if recipe.image != "" %}
+                <img src="{{recipe.image}}" class="col s12"></img>
+            {% else %}
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" class="col s12"></img>
+            {% endif %}
         </div>
     </div>
     <div class="row">

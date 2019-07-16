@@ -1,5 +1,16 @@
 /*Fonts:*/
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+
 .title-font {
     font-family: 'Dancing Script', cursive;
 }
@@ -13,7 +24,7 @@
 .parallax-container {
       height: 400px;
     }
-
+    
 
 
 
