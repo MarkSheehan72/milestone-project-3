@@ -152,7 +152,8 @@ def search_recipes_by_username():
     recipes=mongo.db.recipes.find()
     search = request.form.get('search_recipes_by_username').lower()
     username_search = mongo.db.recipes.find({"user.name": {"$regex":search}}).sort("views", -1)
-    return render_template("search_recipes_by_username.html", recipes=recipes, username_search=username_search)
+    count = username_search.count()
+    return render_template("search_recipes_by_username.html", recipes=recipes, username_search=username_search, count=count)
     
     
 @app.route('/search_cuisine')

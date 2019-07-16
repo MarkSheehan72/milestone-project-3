@@ -5,7 +5,7 @@
 <div class="parallax-container">
     <div class="row">
         <h2 class="col s6 m4 offset-s5 offset-m7 title-font blue-text text-lighten-3">Welcome to Cook Book!</h2>
-        <h5 class="col s6 m4 offset-s5 offset-m7">Where you are the author!</h5>
+        <h5 class="col s6 m4 offset-s5 offset-m7 standard-font">Where you are the author!</h5>
     </div>
     <div class="parallax"><img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></div>
 </div>
@@ -23,10 +23,10 @@
             </div>
             <div class="card-content">
                 <span class="card-title standard-font">Find a recipe</span>
-                <p>Click below to find a recipe on this site.</p>
+                <p class="standard-font">Click below to find a recipe on this site.</p>
             </div>
-            <div class="card-action red darken-1 center-align hoverable">
-              <a href="{{url_for('get_recipes')}}" class="title-font white-text">Find a recipe</a>
+            <div>
+              <a href="{{url_for('get_recipes')}}" class="waves-effect waves-light btn blue lighten-3 hoverable col s8 offset-s2 title-font white-text">Find a recipe</a>
             </div>
         </div>
     </div>
@@ -38,10 +38,10 @@
             </div>
             <div class="card-content">
                 <span class="card-title standard-font">Add a recipe</span>
-                <p>Click below to add a recipe to our site.</p>
+                <p class="standard-font">Click below to add a recipe to our site.</p>
             </div>
-            <div class="card-action blue darken-1 center-align hoverable">
-              <a href="{{url_for('add_recipe')}}" class="title-font white-text">Add a recipe</a>
+            <div>
+              <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn blue lighten-3 hoverable col s8 offset-s2 title-font white-text">Add a recipe</a>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
 <!--This will take 4 recipes from the database and display them on the index page.-->
 <!--This is intended as a "need some inspiration" style section on the home page.-->
 <div class="row">
-    <h3 class="title-font center blue-text text-lighten-3">Some sample recipes:</h3>
+    <h3 class="title-font center blue-text text-lighten-3">Most viewed recipes:</h3>
     <div class="row">
         {% for recipe in recipes %}
         {% if loop.index < 5 %} 
@@ -70,11 +70,11 @@
                         <h5 class="card-title standard-font">{{recipe.recipe_title.capitalize()}}</h5>
                     </div>
                     <div class="card-content class-size">
-                        <p id="description">{{recipe.recipe_description.capitalize()}}</p>
-                        <p><i class="material-icons">visibility</i> {{recipe.views}}</p>
+                        <p class="standard-font" id="description">{{recipe.recipe_description.capitalize()}}</p>
+                        <p class="standard-font"><i class="material-icons">visibility</i> {{recipe.views}}</p>
                     </div>
                     <div class="card-action">
-                        <a href="{{url_for('the_recipe', recipe_id=recipe._id)}}"><i class="material-icons">local_dining</i> Go to recipe!</a>
+                        <a href="{{url_for('the_recipe', recipe_id=recipe._id)}}" class="standard-font"><i class="material-icons">local_dining</i> Go to recipe!</a>
                     </div>
                 </div>
             </div>
