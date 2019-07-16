@@ -31,7 +31,7 @@
         </div>
     </div>
     
-    <div class="col s12 m6">
+    <div class="col s12 m12 l6">
         <div class="card medium">
             <div class="card-image">
               <img src="https://storage.needpix.com/rsynced_images/recipe-575434_1280.png">
@@ -57,6 +57,7 @@
         {% for recipe in recipes %}
         {% if loop.index < 5 %} 
         <div class="col s12 m12 l6">
+            <a href="{{url_for('the_recipe', recipe_id=recipe._id)}}">
             <div class="card horizontal">
                 <div class="card-image valign-wrapper">
                     {% if recipe.image != "" %}
@@ -67,17 +68,18 @@
                 </div>
                 <div class="card-stacked">
                     <div class=center-align>
-                        <h5 class="card-title standard-font">{{recipe.recipe_title.capitalize()}}</h5>
+                        <h5 class="card-title standard-font blue-text text-lighten-3">{{recipe.recipe_title.capitalize()}}</h5>
                     </div>
                     <div class="card-content class-size">
-                        <p class="standard-font" id="description">{{recipe.recipe_description.capitalize()}}</p>
-                        <p class="standard-font"><i class="material-icons">visibility</i> {{recipe.views}}</p>
+                        <p class="standard-font black-text" id="description">{{recipe.recipe_description.capitalize()}}</p>
+                        <p class="standard-font black-text"><i class="material-icons">visibility</i> {{recipe.views}}</p>
                     </div>
                     <div class="card-action">
-                        <a href="{{url_for('the_recipe', recipe_id=recipe._id)}}" class="standard-font"><i class="material-icons">local_dining</i> Go to recipe!</a>
+                        <p class="standard-font orange-text"><i class="material-icons">local_dining</i> Go to recipe!</p>
                     </div>
                 </div>
             </div>
+            </a>
         </div>
         {% endif %} 
         {% endfor %}

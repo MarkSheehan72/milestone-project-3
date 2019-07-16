@@ -15,7 +15,6 @@ a {
 }
 
 
-
 /*Fonts*/
 
 .title-font {
@@ -33,7 +32,9 @@ a {
     margin-top: 10px;
     }
     
-
+/*.modal-footer {*/
+/*    text-align: center;*/
+/*}*/
 
 
 /*i.material-icons {*/

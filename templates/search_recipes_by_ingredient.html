@@ -6,7 +6,8 @@
 <!--Users will receive the search results from their search of an ingredient.-->
 <div class="row">
     <h2 class="center-align title-font center blue-text text-lighten-3">Search results!</h2>
-    <p class="center-align">Click on the image of a recipe below to learn more about it, and see the link to the full recipe:</p>
+    <p class="center-align standard-font">Number of results = {{count}}</p>
+    <p class="center-align standard-font">Click on the image of a recipe below to learn more about it, and see the link to the full recipe:</p>
 </div>
 
 <div class="row">
@@ -22,15 +23,15 @@
                 {% endif %}
             </div>
             <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{recipe.recipe_title.capitalize()}}<i class="material-icons right">more_vert</i></span>
-                <p class="col s12 m6">Author: {{recipe.user.name}}</p>
-                <p class="col s12 m6"><i class="material-icons">visibility</i> {{recipe.views}}</p>
+                <span class="card-title activator title-font blue-text text-lighten-3">{{recipe.recipe_title.capitalize()}}<i class="material-icons right">more_vert</i></span>
+                <p class="col s12 m6 standard-font">Author: {{recipe.user.name}}</p>
+                <p class="col s12 m6 standard-font"><i class="material-icons">visibility</i> {{recipe.views}}</p>
             </div>
             <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{recipe.recipe_title.capitalize()}}</span>
-                <p>{{recipe.recipe_description.capitalize()}}</p>
+                <span class="card-title title-font blue-text text-lighten-3"><i class="material-icons right">close</i>{{recipe.recipe_title.capitalize()}}</span>
+                <p class="standard-font">{{recipe.recipe_description.capitalize()}}</p>
                 <div class="card-action">
-                    <p><a href="{{url_for('the_recipe', recipe_id=recipe._id)}}"><i class="material-icons">local_dining</i> Go to recipe!</a></p>
+                    <p><a href="{{url_for('the_recipe', recipe_id=recipe._id)}}" class="standard-font"><i class="material-icons">local_dining</i> Go to recipe!</a></p>
                 </div>
             </div>
         </div>

@@ -3,8 +3,8 @@
 
 <div class="row">
     <h2 class="center-align title-font center blue-text text-lighten-3">Edit this Recipe!</h2>
-    <p>Change the fields you wish to edit and click the save button to submit these changes.</p> 
-    <p><strong>Note:</strong> Please write the ingredients rows in lowercase.</p>
+    <p class="standard-font">Change the fields you wish to edit and click the save button to submit these changes.</p> 
+    <p class="standard-font"><strong>Note:</strong> Please write the ingredients rows in lowercase.</p>
 </div>
 
 
@@ -13,7 +13,7 @@
 <div class="row">
     <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" class="col s12">
         <div class="row">
-            <h5><strong>Recipe Details:</strong></h5>
+            <h5 class="standard-font"><strong>Recipe Details:</strong></h5>
             <div class="input-field col s12">
                 <i class="fas fa-heading prefix"></i>
                 <input id="recipe_title" name="recipe_title" type="text" class="validate" value="{{recipe.recipe_title}}">
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="row">
-            <h5><strong>Personal Details:</strong></h5>
+            <h5 class="standard-font"><strong>Personal Details:</strong></h5>
             <div class="input-field col s6">
                 <i class="fas fa-signature prefix"></i>
                 <input name="user_name" id="user_name" type="text" class="validate" value="{{recipe.user.name}}">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="row">
-            <h5><strong>Ingredients:</strong></h5>
+            <h5 class="standard-font"><strong>Ingredients:</strong></h5>
         </div>
         {% for ingredient in recipe.ingredients %}
 
@@ -109,7 +109,7 @@
         <!--<div class="divider"></div>-->
         
         <div class="row">
-            <h5><strong>Method:</strong></h5>
+            <h5 class="standard-font"><strong>Method:</strong></h5>
             <p>Number steps and write one step per space in the form:</p>
         </div>
         <div class="row">
@@ -124,7 +124,7 @@
             {% endfor %}
         </div>
         <div class="row">
-            <h5><strong>Add additional method steps:</strong></h5>
+            <h5 class="standard-font"><strong>Add additional method steps:</strong></h5>
         </div>
         <div class="row">
             <div class="input-field col s12">
@@ -142,7 +142,7 @@
         </div>
         <div class="divider"></div>
         <div class="row">
-            <h5><strong>Image:</strong></h5>
+            <h5 class="standard-font"><strong>Image:</strong></h5>
         </div>
         <div class="row">
             <div class="input-field col s12">
@@ -153,7 +153,7 @@
         </div>
 
         <div class="row">
-            <button class="btn waves-effect waves-light standard-font blue lighten-3" type="submit" name="action">Edit Recipe
+            <button class="btn waves-effect waves-light title-font blue lighten-3" type="submit" name="action">Edit Recipe
                 <i class="fas fa-exchange-alt right"></i>
             </button>
         </div>

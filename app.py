@@ -167,7 +167,8 @@ def search_recipes_by_cuisine():
     recipes=mongo.db.recipes.find()
     search = request.form.get('search_recipes_by_cuisine').lower()
     cuisine_search = mongo.db.recipes.find({"recipe_cuisine": {"$regex":search}}).sort("views", -1)
-    return render_template("search_recipes_by_cuisine.html", recipes=recipes, cuisine_search=cuisine_search)
+    count = cuisine_search.count()
+    return render_template("search_recipes_by_cuisine.html", recipes=recipes, cuisine_search=cuisine_search, count=count)
 
 
 @app.route('/search_ingredient')
@@ -181,7 +182,8 @@ def search_recipes_by_ingredient():
     recipes=mongo.db.recipes.find()
     search = request.form.get('search_recipes_by_ingredient').lower()
     ingredient_search = mongo.db.recipes.find({"ingredients.name": {"$regex":search}}).sort("views", -1)
-    return render_template("search_recipes_by_ingredient.html", recipes=recipes, ingredient_search=ingredient_search)
+    count = ingredient_search.count()
+    return render_template("search_recipes_by_ingredient.html", recipes=recipes, ingredient_search=ingredient_search, count=count)
 
 
 @app.route('/search_recipe_title')
@@ -195,7 +197,8 @@ def search_recipes_by_recipe_title():
     recipes=mongo.db.recipes.find()
     search = request.form.get('search_recipes_by_recipe_title').lower()
     recipe_title_search = mongo.db.recipes.find({"recipe_title": {"$regex":search}}).sort("views", -1)
-    return render_template("search_recipes_by_recipe_title.html", recipes=recipes, recipe_title_search=recipe_title_search)
+    count = recipe_title_search.count()
+    return render_template("search_recipes_by_recipe_title.html", recipes=recipes, recipe_title_search=recipe_title_search, count=count)
 
 
 #////////////////////////////////////////////////The recipe view:

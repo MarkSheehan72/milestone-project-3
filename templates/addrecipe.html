@@ -3,14 +3,14 @@
 
 <div class="row">
     <h2 class="center-align title-font blue-text text-lighten-3">Add a Recipe!</h2>
-    <p>Fill in the form to add a recipe to our collection.</p> 
-    <p><strong>Note:</strong> Please write the ingredients rows in lowercase.</p>
+    <p class="standard-font">Fill in the form to add a recipe to our collection.</p> 
+    <p class="standard-font">Note: Please write the ingredients rows in lowercase.</p>
 </div>
 
 <div class="row">
     <form action="{{url_for('insert_recipe')}}" method="POST" class="col s12">
         <div class="row">
-            <h5><strong>Recipe Details:</strong></h5>
+            <h5 class="standard-font">Recipe Details:</h5>
             <div class="input-field col s12">
                 <i class="fas fa-heading prefix"></i>
                 <input id="recipe_title" name="recipe_title" type="text" class="validate">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="row">
-            <h5><strong>Personal Details:</strong></h5>
+            <h5 class="standard-font">Personal Details:</h5>
             <div class="input-field col s6">
                 <i class="fas fa-signature prefix"></i>
                 <input name="user_name" id="user_name" type="text" class="validate">
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="row">
-            <h5><strong>Ingredients:</strong></h5>
+            <h5 class="standard-font">Ingredients:</h5>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
@@ -227,8 +227,8 @@
             </div>
         </div>
         <div class="row">
-            <h5><strong>Method:</strong></h5>
-            <p>Number steps and write one step per space in the form:</p>
+            <h5 class="standard-font">Method:</h5>
+            <p class="standard-font">Number steps and write one step per space in the form:</p>
         </div>
         <div class="row">
             <div class="input-field col s12">
@@ -280,18 +280,18 @@
             </div>
         </div>
         <div class="row">
-            <h5><strong>Image:</strong></h5>
+            <h5 class="standard-font">Image:</h5>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="far fa-image prefix"></i>
                 <textarea name="image" id="image" type="text" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Recipe Image (Paste an image URL here if available) - <strong>OPTIONAL</strong></label>
+                <label for="icon_telephone">Recipe Image (Paste an image URL here if available) - OPTIONAL</label>
             </div>
         </div>
 
         <div class="row">
-            <button class="btn waves-effect waves-light standard-font center blue lighten-3" type="submit" name="action">Add Recipe
+            <button class="btn waves-effect waves-light title-font center blue lighten-3" type="submit" name="action">Add Recipe
                 <i class="material-icons right">add_box</i>
             </button>
         </div>
