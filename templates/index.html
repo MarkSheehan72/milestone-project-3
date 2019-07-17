@@ -54,9 +54,10 @@
 <div class="row">
     <h3 class="title-font center blue-text text-lighten-3">Most viewed recipes:</h3>
     <div class="row">
+        <div class="carousel">
         {% for recipe in recipes %}
         {% if loop.index < 5 %} 
-        <div class="col s12 m12 l6">
+        <div class="col s8 m6 carousel-item">
             <a href="{{url_for('the_recipe', recipe_id=recipe._id)}}">
             <div class="card horizontal">
                 <div class="card-image valign-wrapper">
@@ -83,6 +84,7 @@
         </div>
         {% endif %} 
         {% endfor %}
+        </div>
     </div>
 </div>
 
