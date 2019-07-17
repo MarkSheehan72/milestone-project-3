@@ -21,9 +21,8 @@ Deployed website: https://cook-book-milestone-project.herokuapp.com/
 >
 >Optionally, you may choose to add basic user registration and authentication to the site. This can as simple as adding a username field to the recipe creation form, without a password (for this project only, this is not expected to be secure).
 
-As such, I set about creating a single-page dashboard, using a dataset I obtained from [Kaggle](https://www.kaggle.com/spscientist/students-performance-in-exams), which would visualise the data contained within in an aesthetically pleasing and easily digestible manner for those viewing it.
+As such, I set about creating an app which served two main functions: finding recipes already existing on the linked database, and adding recipes to the linked database.
 
-This included laying out the various pieces of information in different sections, so that users could easily locate the statistics which are useful to them, adding colour (e.g. gender colours) to aid the aesthetic, and adding inference commentary to aid the user in understanding what the graphs are telling us.
  
 
 # UX 
@@ -34,6 +33,7 @@ This website has two primary parties involved –  users who want to add recipes
 * We want to easily add recipes to the site's database.
 * We want to access these recipes in future easily, perhaps through a username.
 * We want to be albe to see if the recipe has been received favourably, either through likes or view numbers.
+* We want to be able to edit and delete recipes on the site.
 
 **Users searching for recipes:**  
 * We want to be able to easily access recipes based on various search criteria (perhaps the title, cuisine or an ingredient in the recipe).
@@ -43,31 +43,31 @@ This website has two primary parties involved –  users who want to add recipes
 
  
 # Wireframe
-Please see the [*Wireframes*](https://github.com/MarkSheehan72/milestoneproject2/tree/master/wireframes) directory in the project for wireframes of each page of the project. 
+Please see the [*Wireframes*](https://github.com/MarkSheehan72/milestone-project-3/tree/master/wireframes) directory in the project for wireframes of various pages/aspects of the project. 
 
 # Features 
 
 **Existing Features** 
 
-* Number display – displays the number of each gender in the survey as a percentage.
+* Parallax: Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling. Here, it is used for the hero image on the home page.
 
-* Bar charts - represents data as bars on a chart (here used for gender split and race/ethnicity split in the data set).
+* Cards: A convenient means of displaying content composed of different types of objects. Here, these are used to section off content in a visually pleasing manner.
 
-* Pie charts - represents data as segments of a circle (here used to show the gender split within the results for each subject).
+* Carousel: Allows users to easily swap between recipe cards on the home page.
 
-* Parental level of education selector - allows users to select a specific parental level of education, which filters the other charts on the page (and is specifically to be used with the race/ethnicity bar chart with it).
+* Dropdown: Used for the "Find a recipe" part of the navbar, to allow users to select which category they would like to use to search. 
 
-* Stacked bar chart - represents the parental level of education as percentages according to the race/ethnicity.
+* Buttons: Used for specific actions for user interaction.
 
-* Scatter graphs - show the correlation between the various subjects.
+* Forms: Used as front-end methods to add and edit recipes on the site.
 
-* Line graphs - show the difference between the average score achieved by those who completed the test preparation course and those who did not.
+* Card Reveal: Used to reveal the recipe description of search results, ad also the link to the recipe itself once users have decided that is the recipe they wish to view.
 
-* Reset Button - resets all graphs on the page.
+* Delete Modal: When users hit the delete button on the recipe page, a modal pops up asking if users are sure they wish to delete the recipe. This allows for a "second chance" in case of accidental clicks of the delete button.
 
 **Features Left to Implement** 
 
-* Adding nav tabs to the navbar on the top of the page, which will allow users to jump to a specific section.
+* Adding the ability for users to create their own profile. As a result of this, users would have their own page with their recipes, and deleting recipes would be locked to the owner of the recipe only.
 
 
 # Technologies Used 
@@ -82,81 +82,135 @@ The project uses [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) to 
 
 **Javascript**
 
-The project uses [Javascript](https://en.wikipedia.org/wiki/JavaScript), in particular DC, D3 and Crossfilter libraries, to add interactivity (in particular, charts and a selector) to the site. 
+The project uses [Javascript](https://en.wikipedia.org/wiki/JavaScript), in particular JQuery, for interactive elements on various pages. 
 
-**Bootstrap 3.3.7** 
+**Materialize** 
 
-The project uses [Bootstrap](https://getbootstrap.com/docs/3.3/getting-started/) to aid in both the styling (Bootstrap CSS and Components) and structure (Grid System) of the site, as well as aiding to create a responsive design (also through the Grid System). 
+The project uses [Materialize](http://archives.materializecss.com/0.100.2/) to aid in both the styling (Materialize CSS, Components and Javascript) and structure (Grid System) of the site, as well as aiding to create a responsive design (also through the Grid System). 
 
 **FontAwesome** 
 
-The project uses [FontAwesome](https://use.fontawesome.com/releases/v5.6.3/css/all.css) to add an arrow glyphicon to clearly mark the selector element on the page.
+The project uses [FontAwesome](https://use.fontawesome.com/releases/v5.6.3/css/all.css) to add icons to various parts of the page.
 
-**DC/D3/Crossfilter**
+**Python**
 
-The project uses [DC](static/js/dc.min.js), [D3](static/js/d3.min.js) and [Crossfilter](static/js/crossfilter.min.js) to add interactive charts (including number displays and a selector) to the site.
+The project uses [Python](https://en.wikipedia.org/wiki/Python_(programming_language)), for logic elements of the project.
+
+**Flask**
+
+The project uses the [Flask Framework](https://en.wikipedia.org/wiki/Python_(programming_language)).
+
+**MongoDB**
+
+The project uses [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/general/try?utm_content=070819_Ad_ConFree_V1&jmp=search&utm_source=google&utm_campaign=GS_Footprint_ROW_Search_Brand-AtlasTerms_Atlas_Desktop&utm_term=mongodb%20atlas&utm_device=c&utm_network=g&utm_medium=cpc_paid_search&utm_matchtype=e&utm_cid=2037898761&utm_asagid=74623183880&utm_adid=356073073825&gclid=EAIaIQobChMIlLzMwb284wIVQ4fVCh3L7QkuEAAYASAAEgJ12_D_BwE) as a non-relational database for the project' data.
+
 
 # Testing 
 
 ### Scenarios: 
 
-##### Researchers User Story: 
+##### User Story 1 - Users adding recipes: 
 
-*Display data in visual format:* 
+*Easily add recipes to the site's database:* 
 
-* Clear from the dashboard that this has been achieved.
+* Go to the add recipe page (either through the navbar link or by the add recipe card on home page).
 
-* Also, Jasmine test for seeing if the charts loads passes. 
+* Insert random values into the form elements and click the "Add Recipe" button at the bottom of the page.
+
+* Users will see that they have added a recipe with a thank you message and link back to the site's home page.
+
+* Search for the recipe using one of the categories to see if it was added.
+
+* Can see that this works.
 
 
 
-*Aesthetically pleasing graphs:* 
+*Access these recipes in future easily, perhaps through a username:* 
 
-* Charts have either defined or predetermined colours, which add the the aesthetic of the site.
+* Add a recipe. Recall the username submitted with this recipe.
 
-* Again, Jasmine test for seeing if charts load passes. 
+* Go to the 'search recipes by username' page either through the navbar dropdown (Find a recipe) or by going to the category page (recipes.html) via the link on the home page.
 
- 
+* Enter the username into the search field and click the search button.
 
-*Inference on graphs:* 
+* The recipe will appear in the search results page.
 
-* These can be seen with each graph/set of graphs in the dashboard.
-
-* As all content loads (as per Jasmine test), these are garaunteed to load. 
-
- 
-
-*Data interacts with each other:* 
-
-* Go to various graphs and the selector.
-
-* Click on an element of these graphs/selector.
-
-* See if the other graphs change to only display the data set seleted (e.g. females).
-
-* For the specific example in the user story (math/reading correlation for females), we can see that by selecting the female bar in the gender bar chart, only the pink (female) dots are left on the statter graph.
-
-* There are certains elements of graphs which do work in line with this interactivity (e.g. clicking one of the elements of the <strong>legend</strong> of the stacked bar chart), but all elements have a graph/chart/selector which allow us to get the specific intersection of data dimensions that one may want. 
+* This test can be repeated for any of the search categories.
 
  
 
-##### Users User Story: 
+*See if the recipe has been received favourably, either through likes or view numbers:* 
 
-*Understandable visualisations/Additional commentary:* 
-
-* All graphs have inferences to add additional explanations.
-
-* Jasmine test shows these will display. 
+* With all recipe cards, the number of views the recipe has is visible either next to the word "views" or next to the views icon: `<i class="material-icons">visibility</i>`. 
 
 
-*Colour coded data:* 
+*Edit recipes on the site:*
 
-* See "Researchers" point on "Aesthetically pleasing graphs".
+* Search for a recipe (use "test" for this example).
+
+* Click on the resulting recipe's card and click on the link from the card reveal.
+
+* At the bottom of the page, click the "Edit Recipe" button.
+
+* Users will see a form like the "Add Recipe" form, but with the information from the recipe filled in.
+
+* Edit a field(s) of the recipe and click the "Edit Recipe" button at the bottom of the page.
+
+* Users will see that they have edited the recipe with a thank you message and link back to the site's home page.
+
+* To ensure this recipe was edited, they can repeat the search procedure above and go to the recipe's page.
+
+* The user will now see that the fields they changed have been changed in the recipe.
 
 
-*Selecting specific groups to isolate data to study:* 
+*Delete recipes on the site:*
 
-* See "Researchers" point on "Data interacts with each other".
+* Search for a recipe (use "test" for this example).
+
+* Click on the resulting recipe's card and click on the link from the card reveal.
+
+* At the bottom of the page, click the "Delete Recipe" button.
+
+* Users will see a modal pop up, asking them if they are sure they wish to delete the recipe.
+
+* Click the "Delete Recipe" button in the pop-up.
+
+* Users will be redirected to the home page.
+
+* To see if the recipe was in fact deleted, users can repeat the search process, and will find that the recipe does not appear in the search results as it has been deleted.
+ 
+
+##### User Story 2 - Users searching for recipes: 
+
+*Easily access recipes based on various search criteria (perhaps the title, cuisine or an ingredient in the recipe):* 
+
+* See "User Story 1" point on "Access these recipes in future easily, perhaps through a username".  
+
+
+*Get a summary of search results to make it easier to decide which search result recipe best fits what we are looking for:* 
+
+* Search for a recipe (use "test" for this example).
+
+* Users will see the number of recipes in the database which match their search criteria at the top of the search results page.
+
+* Users will be presented with a card for each recipe matching their search criteria. Initially, these just have the title, author, number of views and an image (if provided - if not, they are given a default image stating no image exists for the recipe). 
+  On clicking the card, they will then receive a more detailed description of the recipe, as well as the link for the recipe. This graduated release of information allows users to more easily filter through recipes, only getting more information on recipes which appeal to them.  
+
+
+*Search result recipes to be ordered by some manner of popularity (either likes or views) to see the most popular recipes which match our search:* 
+
+* Search for a recipe (use "test" for this example).
+
+* Users will see that the search results are returned in descending order of the number of views they have (i.e. the recipes with the most views will appear first).
+
+
+*The recipe to be clear and concisely presented, in an easily understandable format* 
+
+* Search for a recipe (use "test" for this example).
+
+* Click on a search result and click the link from the card reveal.
+
+* Users will see a page with all of the recipe information, arranged in a logical fashion and divided into different sections for easy following.
 
 
 ### Jasmine Testing:
@@ -172,7 +226,7 @@ Jasmine was used to test 3 things in particular for this project:
 
 ### Responsiveness of site: 
 
-To aid in creating a responsive site, I used Bootstrap’s Grid System. Through the creating process of this dashboard, I would check the various break points to see if the column sizes worked with the design on various device screen sizes, using Chrome Dev Tools, my own iPhone 8 and an iPad Pro (10.5).
+To aid in creating a responsive site, I used Materialize’s Grid System. Through the creating process of this app, I would check the various break points to see if the column sizes worked with the design on various device screen sizes, using Chrome Dev Tools, my own iPhone 8 and an iPad Pro (10.5).
 
 
 **Navbar:** The Grid system aided me here in placing the content where I wanted, in particular placing the reset button at the right-hand side of the navbar.

@@ -59,27 +59,27 @@
         {% if loop.index < 5 %} 
         <div class="col s8 m6 carousel-item">
             <a href="{{url_for('the_recipe', recipe_id=recipe._id)}}">
-            <div class="card horizontal">
-                <div class="card-image valign-wrapper">
-                    {% if recipe.image != "" %}
-                        <img src="{{recipe.image}}" class="col s12"></img>
-                    {% else %}
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" class="col s12"></img>
-                    {% endif %}
+                <div class="card horizontal">
+                    <div class="card-image valign-wrapper">
+                        {% if recipe.image != "" %}
+                            <img src="{{recipe.image}}" class="col s12"></img>
+                        {% else %}
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" class="col s12"></img>
+                        {% endif %}
+                    </div>
+                    <div class="card-stacked">
+                        <div class=center-align>
+                            <h5 class="card-title standard-font blue-text text-lighten-3">{{recipe.recipe_title.capitalize()}}</h5>
+                        </div>
+                        <div class="card-content class-size">
+                            <p class="standard-font black-text" id="description">{{recipe.recipe_description.capitalize()}}</p>
+                            <p class="standard-font black-text"><i class="material-icons">visibility</i> {{recipe.views}}</p>
+                        </div>
+                        <div class="card-action">
+                            <p class="standard-font orange-text"><i class="material-icons">local_dining</i> Go to recipe!</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-stacked">
-                    <div class=center-align>
-                        <h5 class="card-title standard-font blue-text text-lighten-3">{{recipe.recipe_title.capitalize()}}</h5>
-                    </div>
-                    <div class="card-content class-size">
-                        <p class="standard-font black-text" id="description">{{recipe.recipe_description.capitalize()}}</p>
-                        <p class="standard-font black-text"><i class="material-icons">visibility</i> {{recipe.views}}</p>
-                    </div>
-                    <div class="card-action">
-                        <p class="standard-font orange-text"><i class="material-icons">local_dining</i> Go to recipe!</p>
-                    </div>
-                </div>
-            </div>
             </a>
         </div>
         {% endif %} 
