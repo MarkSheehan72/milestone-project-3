@@ -7,26 +7,10 @@
 </div>
 
 
-<div class="row">
-    <!--<div class="col s12 m6">-->
-    <!--    <div class="card medium">-->
-    <!--        <div class="card-image">-->
-    <!--          <img src="http://apelafoundation.org/wp-content/uploads/2014/06/recipe-title-300x119.jpg">-->
-    <!--        </div>-->
-    <!--        <div class="card-content blue lighten-4">-->
-    <!--            <span class="card-title">Recipe Title</span>-->
-    <!--            <p>Click below search recipes by their title.</p>-->
-    <!--        </div>-->
-    <!--        <div class="card-action blue darken-1">-->
-    <!--          <a href="{{url_for('search_recipe_title')}}">Recipe Title</a>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-
 <!--Category cards:-->
 <!--Four cards giving users the choice of how they want to search for their desired recipe:.-->
 <!--Recipe title, recipe cuisine, ingredients or username-->
+<div class="row">
     <div class="col s12 m6">
         <h4 class="header standard-font">Ingredients</h4>
         <a href="{{url_for('search_recipe_title')}}">
@@ -66,24 +50,6 @@
             </div>
         </a>
     </div>
-    
-    <!--<div class="card-panel col s12 m6">-->
-    <!--    <div class="row">-->
-    <!--        <a href="{{url_for('search_recipe_title')}}" class="waves-effect waves-light btn pink darken-1 hoverable col s12"><i class="fas fa-heading"></i> Recipe Title</a>-->
-    <!--    </div>-->
-    <!--    <div class="row">-->
-    <!--        <img src="http://apelafoundation.org/wp-content/uploads/2014/06/recipe-title-300x119.jpg" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-    <!--<div class="card-panel col s12 m6">-->
-    <!--    <div class="row">-->
-    <!--        <a href="{{url_for('search_cuisine')}}" class="waves-effect waves-light btn hoverable col s12"><i class="fas fa-utensils"></i> Cuisine</a>-->
-    <!--    </div>-->
-    <!--    <div class="row">-->
-    <!--        <img src="https://c.pxhere.com/photos/2d/99/sushi_sashimi_eat_restaurant_delicacy_dine_fish_rice-760717.jpg!d" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>-->
-    <!--    </div>-->
-    <!--</div>-->
 </div>
 
 <div class="row">
@@ -126,54 +92,7 @@
             </div>
         </a>
     </div>
-    
-    <!--<div class="card-panel col s12 m6">-->
-    <!--    <div class="row">-->
-    <!--        <a href="{{url_for('search_ingredient')}}" class="waves-effect waves-light btn yellow darken-1 hoverable col s12"><i class="fas fa-cheese"></i> Ingredient</a>-->
-    <!--    </div>-->
-    <!--    <div class="row">-->
-    <!--        <img src="https://www.goodfreephotos.com/cache/food/cooking-ingredients-with-avocado-mushrooms-eggs.jpg" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-    <!--<div class="card-panel col s12 m6">-->
-    <!--    <div class="row">-->
-    <!--        <a href="{{url_for('search_username')}}" class="waves-effect waves-light btn blue darken-1 hoverable col s12"><i class="fas fa-signature"></i> Username</a>-->
-    <!--    </div>-->
-    <!--    <div class="row">-->
-    <!--        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hello_my_name_is_sticker.svg/900px-Hello_my_name_is_sticker.svg.png" class="col s6 offset-s3 responsive-img" id="get-recipes-img"></img>-->
-    <!--    </div>-->
-    <!--</div>-->
 </div>
 
-
-
-<!--<div class="row">-->
-<!--    <form action="#" method="POST" class="col s12">-->
-<!--        <div class="row">-->
-<!--            {% for category in categories %}-->
-<!--            <a href="#" class="waves-effect waves-light btn blue darken-1 hoverable col s12 m4"><i class="material-icons">search</i> {{category.category_name}}</a> -->
-<!--            {% endfor %}-->
-<!--        </div>-->
-<!--    </form>-->
-<!--</div>-->
-
-
-
-
-
-
-<!--{% for recipe in recipes %} -->
-<!--    {{recipe.recipe_title}} -->
-<!--    {{recipe.recipe_description}} -->
-<!--    {{recipe.recipe_cuisine}} -->
-<!--    {{recipe.user.name}} -->
-<!--    {{recipe.user.country}} -->
-<!--    {{recipe.views}}-->
-<!--    {{recipe.ingredients.name}}-->
-<!--    {{recipe.ingredients.amount}}-->
-<!--    {{recipe.ingredients.allergen}}-->
-<!--    {{recipe.method}}-->
-<!--{% endfor %}-->
 
 {% endblock %}

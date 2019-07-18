@@ -1,6 +1,6 @@
 # Cook Book 
 
-Deployed website: https://cook-book-milestone-project.herokuapp.com/
+Deployed app: https://cook-book-milestone-project.herokuapp.com/
 
 **The brief for this project is as follows:** 
 >CREATE AN ONLINE COOKBOOK:
@@ -27,7 +27,7 @@ As such, I set about creating an app which served two main functions: finding re
 
 # UX 
 
-This website has two primary parties involved –  users who want to add recipes to the site for storage purposes/future reference/to share with others, and users who want to search for recipes. The user stories for these parties are as follows:
+This app has two primary parties involved –  users who want to add recipes to the site for storage purposes/future reference/to share with others, and users who want to search for recipes. The user stories for these parties are as follows:
 
 **Users adding recipes:** 
 * We want to easily add recipes to the site's database.
@@ -42,7 +42,7 @@ This website has two primary parties involved –  users who want to add recipes
 * We want the recipe to be clear and concisely presented, in an easily understandable format.
 
  
-# Wireframe
+# Wireframes
 Please see the [*Wireframes*](https://github.com/MarkSheehan72/milestone-project-3/tree/master/wireframes) directory in the project for wireframes of various pages/aspects of the project. 
 
 # Features 
@@ -61,7 +61,7 @@ Please see the [*Wireframes*](https://github.com/MarkSheehan72/milestone-project
 
 * Forms: Used as front-end methods to add and edit recipes on the site.
 
-* Card Reveal: Used to reveal the recipe description of search results, ad also the link to the recipe itself once users have decided that is the recipe they wish to view.
+* Card Reveal: Used to reveal the recipe description of search results, and also the link to the recipe itself once users have decided that is the recipe they wish to view.
 
 * Delete Modal: When users hit the delete button on the recipe page, a modal pops up asking if users are sure they wish to delete the recipe. This allows for a "second chance" in case of accidental clicks of the delete button.
 
@@ -90,11 +90,11 @@ The project uses [Materialize](http://archives.materializecss.com/0.100.2/) to a
 
 **FontAwesome** 
 
-The project uses [FontAwesome](https://use.fontawesome.com/releases/v5.6.3/css/all.css) to add icons to various parts of the page.
+The project uses [FontAwesome](https://use.fontawesome.com/releases/v5.6.3/css/all.css) icons on various pages of the app.
 
 **Python**
 
-The project uses [Python](https://en.wikipedia.org/wiki/Python_(programming_language)), for logic elements of the project.
+The project uses [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) for logic elements of the project.
 
 **Flask**
 
@@ -102,7 +102,12 @@ The project uses the [Flask Framework](https://en.wikipedia.org/wiki/Python_(pro
 
 **MongoDB**
 
-The project uses [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/general/try?utm_content=070819_Ad_ConFree_V1&jmp=search&utm_source=google&utm_campaign=GS_Footprint_ROW_Search_Brand-AtlasTerms_Atlas_Desktop&utm_term=mongodb%20atlas&utm_device=c&utm_network=g&utm_medium=cpc_paid_search&utm_matchtype=e&utm_cid=2037898761&utm_asagid=74623183880&utm_adid=356073073825&gclid=EAIaIQobChMIlLzMwb284wIVQ4fVCh3L7QkuEAAYASAAEgJ12_D_BwE) as a non-relational database for the project' data.
+The project uses [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/general/try?utm_content=070819_Ad_ConFree_V1&jmp=search&utm_source=google&utm_campaign=GS_Footprint_ROW_Search_Brand-AtlasTerms_Atlas_Desktop&utm_term=mongodb%20atlas&utm_device=c&utm_network=g&utm_medium=cpc_paid_search&utm_matchtype=e&utm_cid=2037898761&utm_asagid=74623183880&utm_adid=356073073825&gclid=EAIaIQobChMIlLzMwb284wIVQ4fVCh3L7QkuEAAYASAAEgJ12_D_BwE) as a non-relational database for the project's data.
+
+**Jinja2**
+
+The project uses the [Jinja2](http://jinja.pocoo.org/docs/2.10/) templating language.
+
 
 
 # Testing 
@@ -111,7 +116,7 @@ The project uses [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/general/
 
 ##### User Story 1 - Users adding recipes: 
 
-*Easily add recipes to the site's database:* 
+*Easily add recipes to the app's database:* 
 
 * Go to the add recipe page (either through the navbar link or by the add recipe card on home page).
 
@@ -121,7 +126,7 @@ The project uses [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/general/
 
 * Search for the recipe using one of the categories to see if it was added.
 
-* Can see that this works.
+* Can visually confirm that this works. As the site developer, I can see that this has been added to the database on MongoDB Atlas.
 
 
 
@@ -143,14 +148,18 @@ The project uses [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/general/
 
 * With all recipe cards, the number of views the recipe has is visible either next to the word "views" or next to the views icon: `<i class="material-icons">visibility</i>`. 
 
+* As a test, search for a recipe (use "test" as the title for this example).
+
+* Users will see the recipe in the search results, and the number of views can be clearly seen on the recipe card.
+
 
 *Edit recipes on the site:*
 
-* Search for a recipe (use "test" for this example).
+* Search for a recipe (use "test" as the title for this example).
 
 * Click on the resulting recipe's card and click on the link from the card reveal.
 
-* At the bottom of the page, click the "Edit Recipe" button.
+* At the bottom of the recipe page, click the "Edit Recipe" button.
 
 * Users will see a form like the "Add Recipe" form, but with the information from the recipe filled in.
 
@@ -160,16 +169,16 @@ The project uses [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/general/
 
 * To ensure this recipe was edited, they can repeat the search procedure above and go to the recipe's page.
 
-* The user will now see that the fields they changed have been changed in the recipe.
+* The user will now see that the fields they changed have been changed in the recipe. As the site developer, I can see that this has been edited in the database on MongoDB Atlas.
 
 
 *Delete recipes on the site:*
 
-* Search for a recipe (use "test" for this example).
+* Search for a recipe (use "test" as the title for this example).
 
 * Click on the resulting recipe's card and click on the link from the card reveal.
 
-* At the bottom of the page, click the "Delete Recipe" button.
+* At the bottom of the recipe page, click the "Delete Recipe" button.
 
 * Users will see a modal pop up, asking them if they are sure they wish to delete the recipe.
 
@@ -177,7 +186,7 @@ The project uses [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/general/
 
 * Users will be redirected to the home page.
 
-* To see if the recipe was in fact deleted, users can repeat the search process, and will find that the recipe does not appear in the search results as it has been deleted.
+* To see if the recipe was in fact deleted, users can repeat the search process, and will find that the recipe does not appear in the search results as it has been deleted. As the site developer, I can see that this has been deleted from the database on MongoDB Atlas.
  
 
 ##### User Story 2 - Users searching for recipes: 
@@ -189,7 +198,7 @@ The project uses [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/general/
 
 *Get a summary of search results to make it easier to decide which search result recipe best fits what we are looking for:* 
 
-* Search for a recipe (use "test" for this example).
+* Search for a recipe (use "test" as the title for this example).
 
 * Users will see the number of recipes in the database which match their search criteria at the top of the search results page.
 
@@ -199,29 +208,18 @@ The project uses [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/general/
 
 *Search result recipes to be ordered by some manner of popularity (either likes or views) to see the most popular recipes which match our search:* 
 
-* Search for a recipe (use "test" for this example).
+* Search for a recipe (use "test" as the title for this example).
 
 * Users will see that the search results are returned in descending order of the number of views they have (i.e. the recipes with the most views will appear first).
 
 
 *The recipe to be clear and concisely presented, in an easily understandable format* 
 
-* Search for a recipe (use "test" for this example).
+* Search for a recipe (use "test" as the title for this example).
 
 * Click on a search result and click the link from the card reveal.
 
 * Users will see a page with all of the recipe information, arranged in a logical fashion and divided into different sections for easy following.
-
-
-### Jasmine Testing:
-
-Jasmine was used to test 3 things in particular for this project:
-
-* That the data loaded for the project.
-
-* That the content of the page also loaded.
-
-* That a specific example of a graph (i.e. the gender bar chart) loaded. 
 
 
 ### Responsiveness of site: 
@@ -229,65 +227,66 @@ Jasmine was used to test 3 things in particular for this project:
 To aid in creating a responsive site, I used Materialize’s Grid System. Through the creating process of this app, I would check the various break points to see if the column sizes worked with the design on various device screen sizes, using Chrome Dev Tools, my own iPhone 8 and an iPad Pro (10.5).
 
 
-**Navbar:** The Grid system aided me here in placing the content where I wanted, in particular placing the reset button at the right-hand side of the navbar.
-After adding the reset button, I needed to test various breakpoints to see which combination of col sixes and offset sizes worked best.
+**Navbar:** For mobile views for the project, users will see that the full desktop navbar is reduced to just the logo and a burger button, which activates the side nav containing the navbar elements.
 
 **Sections:** The Grid System aided me greatly in arranging the sections for each page. 
-As I was creating each section, and the graphs and text within each, I experimented with various column sizes for each breakpoint. 
-As the graphs are not responsive, this was necessary to see which layout suited both the content and the graph sizes best, while I also would adjust graph sizes to suit the desired layout, if possible. 
+As I was creating each section, and the elements in each (e.g. cards, images, text, etc.), I experimented with various column sizes for each breakpoint to get an appealing layout appropriate to the screen size it is being viewed on.
 
-**Section Paragraph Text:** I also used a media query for the font size of the section paragraph text, as I felt that the original size (18px) was too big for mobile devices.
+**Elements/Cards/Carousel/etc.:** As above with the sections, I experimented with various col sizes to achieve a layout of the various elements throughout the site which was visually appealing and appropriate to the screen size it would be viewed on.
 
-`@media (min-width: 767px) {
-	.section-paragraph {
-		font-size: 18px;
-	}
-}`
+**The Recipe View:** The layout of the first card on the page (containing the title, username, views, image and description) changes in the mobile view, where the image goes from the side to being quite prominent within the card.
 
-**Graphs/Charts:** 
-As the charts created by using the DC library are not responsive, I tested various dimensions for each chart's width, height and radius to see which would work best for all screen sizes. 
-
-The only charts which did not work well were the scatter plots, as there are quite a lot of data points in this sample set. As such, I added a hidden section (see Lines 153 - 155 of index.html) visible for xs screen sizes only which would advise users to rotate their devices to landscape to be able to see the entire graph on their screens (as shrinking the graph to fit mobile devices made the points too undistinguishable.
 
 ### Debugging:
 
-**Reset Button:** Initially, the reset button reset all of the charts, but not the number displays. As such, I needed to create a custom function which would recall the makeGraphs function. 
-As such, I needed to make studentData a global object, by inserting the following in the makeGraphs function:
+**Edit Page:** For the "Ingredients" section of this form, initially, although the page was displying all of the data correctly in the form, it would not display as I wanted in mobile view (as it was three divs, looping through three seperate lists - ingredient name, amount and allergen).
+I tried various positions for the loops and tried nesting loops, but this caused more problems without solving the initial problem. With a bit of guidance from Anna Greaves on Slack, reworking the structure of the data for the Ingredients part of my [schema](https://github.com/MarkSheehan72/milestone-project-3/blob/master/schema/schema sample.png), I was able to loop successfully, achieving the visual layout I wanted.
+However, this then led to me having to rework my edit function in relation to sending the edited data to the database. With some more guidance from Anna (although how I went about debugging the problem was differnet to how she suggested), I came across the zip() function, allowing me to loop simultaneously through lists.
+As such, I was able to retrieve the data from the form as three seperate lists:
 
-`sd = studentData;`
+```python
+  ingredients_name = request.form.getlist('ingredient_name')
+  ingredients_amount = request.form.getlist('ingredient_amount')
+  ingredients_allergen = request.form.getlist('ingredient_allergen')
+```
 
-I then created the reset function, as follows:
+create a blank object, and use the zip function to loop through the three lists and the insert them into this blank object, which I then inserted into a blank array (ingredients_array), which could then be sent to the database:
 
-`function reset() {
-    makeGraphs(null, sd);
-}`
-
-and linked it inline to the button element in index.html using the onClick function:
-
-`<button class="btn btn-danger navbar-btn" onClick="reset();">Reset All</button>`
-
+```python
+ingredients_array = []
+    for name, amount, allergen in islice(zip(ingredients_name, ingredients_amount, ingredients_allergen), 0, None):
+        temporary_object = {}
+        temporary_object.update({'name': name.lower()})
+        temporary_object.update({'amount': amount.lower()})
+        temporary_object.update({'allergen': allergen.lower()})
+        ingredients_array.append(temporary_object)
+```
 
 # Deployment 
 
-I created a repository on GitHub, linking my project on Cloud9 to it. I committed and pushed content to this repository at various stages of the project (e.g. when I had a graph/set of graphs functioning correctly on the page, or when I had a section fully structured and styled). I went into the settings tab on GitHub, and under the GitHub section I changed the source to the master branch. This allowed me to generate a GitHub Pages site for my project. This was incredibly useful in testing the site, as outlined above.
+I created a repository on GitHub, linking my project on Cloud9 to it. I committed and pushed content to this repository at various stages of the project (e.g. when I had a section fully structured and styled, or when I had coded a certain function to function in the desired manner). 
+
+I then created the app on Heroku, created a requirements.txt file (with the project's required applications) and a Procfile (specifying the app is a Python web app).
+
+I then pushed to Heroku. Having done this, I then specified the IP and PORT. 
+
+I pushed to heroku whenever I pushed to Github. This was incredibly useful in testing the site, as outlined above, especially in testing it on various screen sizes.
 
 # Credits 
 
 ### Content 
 
-* The basic structure for the graph.js file and some of the CSS stylings (which I felt worked well with the dashboard I had created, but with slight alterations) were obtained from the dashboard project in the Interactive Frontend Module.
+* Some of the basic functionality (although edited in various places), for example the add and delete functions, was obtained from the Data Centric Milestone Project.
 
-* The arrow glyphicon was sourced from [here](https://fontawesome.com/icons/arrow-circle-down?style=solid). 
+* The icons not sourced from Materialize's own icon library were sourced from [FontAwesome](https://fontawesome.com/icons/arrow-circle-down?style=solid). 
 
-* Aid for the number display function was obtained from my mentor (Mossa Hassan). 
-
-* Aid for the second and third Jasmine Tests were obtained from [here](https://github.com/Migacz85/data-visualisation). 
+* Aid for the data structure for the ingredients object in the schema, the syntax for sort(), and guidance on the edit function was obtained on Slack from Anna Greaves. 
 
 
 # Media 
 
-* The data obtained for this project was obtained from [Kaggle](https://www.kaggle.com/spscientist/students-performance-in-exams).
+* All images for this project were obtained from Google Images.
 
 # Acknowledgements 
 
-* I received some inspiration for this project from the dashboard project which was part of the Interactive Frontend Module.
+* I received some inspiration for this project from the dashboard project which was part of the Data Centric Development Module.

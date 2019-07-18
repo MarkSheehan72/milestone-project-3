@@ -3,13 +3,16 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo 
 from bson.objectid import ObjectId 
 from itertools import islice
+from flask_sslify import SSLify
 
-app = Flask(__name__) 
+app = Flask(__name__)
+sslify = SSLify(app)
 
 app.config["MONGO_DBNAME"] = 'cook_book'
 app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@myfirstcluster-chhcw.mongodb.net/cook_book?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
+
 
 
 #////////////////////////////////////////////////# Home Page

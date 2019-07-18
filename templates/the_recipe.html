@@ -1,43 +1,5 @@
 {% extends 'base.html' %} {% block content%} {% for recipe in recipe %}
 
-<!--<div class="row">-->
-<!--    <div class="card-panel col s4">-->
-<!--        <h3 class="center-align">{{recipe.recipe_title.capitalize()}}</h3>-->
-<!--        <div class="divider"></div>-->
-<!--        <img src="{{recipe.image}}" class="col s8 offset-s2 responsive-img" id="index-img"></img>-->
-<!--        <div class="divider"></div>-->
-<!--        <p class="col s12 m6 center-align">Author: {{recipe.user.name}}</p>-->
-<!--        <p class="col s12 m6 center-align"><i class="material-icons">visibility</i> {{recipe.views}}</p>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--<div class="row">-->
-<!--    <div class="col s4">-->
-<!--        <div class="card">-->
-<!--            <div class="card-image">-->
-<!--                <img src="{{recipe.image}}">-->
-<!--                <span class="card-title title-font blue-text text-lighten-3 blue-grey lighten-5">{{recipe.recipe_title.capitalize()}}</span>-->
-<!--            </div>-->
-<!--            <div class="card-content">-->
-<!--                <p>Written by {{recipe.user.name.capitalize()}} ({{recipe.user.country.capitalize()}})</p>-->
-<!--                <p>Views: {{recipe.views}}-->
-<!--                <p>{{recipe.description}}</p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="col s8">-->
-<!--        <div class="card">-->
-<!--            <div class="card-content">-->
-<!--                <h3 class="standard-font">Ingredients</h3>-->
-<!--                <p></p>-->
-<!--            </div>-->
-<!--            <div class="card-action">-->
-<!--                <a href="#">This is a link</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
 
 <!--The recipe:-->
 <!--Here users are presented with the details of the recipe they selected.-->
@@ -108,8 +70,8 @@
     <!--If a user selects to delete a menu, they will be presented with a modal to confirm their choice.-->
     <!--This gives users a "second chance" if they click the delete button by accident.-->
     <div class="row">
-        <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light title-font btn blue lighten-3 hoverable col s8 m4 offset-s2 offset-m1"><i class="fas fa-exchange-alt"></i> Edit this recipe.</a>
-        <a href="#modal1" class="waves-effect waves-light title-font btn red darken-1 modal-trigger hoverable col s8 m4 offset-s2 offset-m1"><i class="far fa-trash-alt"></i> Delete this recipe.</a>
+        <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light title-font btn blue lighten-3 hoverable col s8 l4 offset-s2 offset-l1 edit_btn"><i class="fas fa-exchange-alt"></i> Edit this recipe.</a>
+        <a href="#modal1" class="waves-effect waves-light title-font btn red darken-1 modal-trigger hoverable col s8 l4 offset-s2 offset-l1"><i class="far fa-trash-alt"></i> Delete this recipe.</a>
         <div id="modal1" class="modal bottom-sheet">
             <div class="col s12">
                 <div class="row">
