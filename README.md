@@ -240,7 +240,7 @@ As I was creating each section, and the elements in each (e.g. cards, images, te
 ### Debugging:
 
 **Edit Page:** For the "Ingredients" section of this form, initially, although the page was displying all of the data correctly in the form, it would not display as I wanted in mobile view (as it was three divs, looping through three seperate lists - ingredient name, amount and allergen).
-I tried various positions for the loops and tried nesting loops, but this caused more problems without solving the initial problem. With a bit of guidance from Anna Greaves on Slack, reworking the structure of the data for the Ingredients part of my [schema](https://github.com/MarkSheehan72/milestone-project-3/blob/master/schema/schema sample.png), I was able to loop successfully, achieving the visual layout I wanted.
+I tried various positions for the loops and tried nesting loops, but this caused more problems without solving the initial problem. With a bit of guidance from Anna Greaves on Slack, reworking the structure of the data for the Ingredients part of my [schema](https://github.com/MarkSheehan72/milestone-project-3/blob/master/schema/schema_sample.png), I was able to loop successfully, achieving the visual layout I wanted.
 However, this then led to me having to rework my edit function in relation to sending the edited data to the database. With some more guidance from Anna (although how I went about debugging the problem was differnet to how she suggested), I came across the zip() function, allowing me to loop simultaneously through lists.
 As such, I was able to retrieve the data from the form as three seperate lists:
 
