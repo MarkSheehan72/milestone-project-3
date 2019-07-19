@@ -69,6 +69,7 @@ Please see the [*Wireframes*](https://github.com/MarkSheehan72/milestone-project
 
 * Adding the ability for users to create their own profile. As a result of this, users would have their own page with their recipes, and deleting recipes would be locked to the owner of the recipe only.
 
+* For adding a recipe, I have provided users 10 ingredient slots (which I felt was a sufficient number for the purposes of the project). In future, I would like to incorporate a means of allowing users to add additional ingredient slots to the form so as not to restrict them in this way.
 
 # Technologies Used 
 

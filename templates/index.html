@@ -5,9 +5,49 @@
 <div class="parallax-container">
     <div class="row">
         <h2 class="col s6 m4 offset-s5 offset-m7 title-font blue-text text-lighten-3">Welcome to Cook Book!</h2>
-        <h5 class="col s6 m4 offset-s5 offset-m7 standard-font">Where you are the author!</h5>
+        <h4 class="col s6 m4 offset-s5 offset-m7 title-font blue-text text-lighten-3">Where you are the author!</h4>
     </div>
     <div class="parallax"><img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></div>
+</div>
+
+<!--Most popular recipe cards:-->
+<!--This will take 4 recipes from the database and display them on the index page.-->
+<!--This is intended as a "need some inspiration" style section on the home page, showing the most popular recipes.-->
+<div class="row">
+    <h3 class="title-font center blue-text text-lighten-3">Most viewed recipes:</h3>
+    <div class="row">
+        <div class="carousel">
+        {% for recipe in recipes %}
+        {% if loop.index < 5 %} 
+        <div class="col s8 m6 carousel-item">
+            <a href="{{url_for('the_recipe', recipe_id=recipe._id)}}">
+                <div class="card horizontal">
+                    <div class="card-image valign-wrapper">
+                        {% if recipe.image != "" %}
+                            <img src="{{recipe.image}}" class="col s12"></img>
+                        {% else %}
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" class="col s12"></img>
+                        {% endif %}
+                    </div>
+                    <div class="card-stacked">
+                        <div class=center-align>
+                            <h5 class="card-title standard-font blue-text text-lighten-3">{{recipe.recipe_title.capitalize()}}</h5>
+                        </div>
+                        <div class="card-content class-size">
+                            <p class="standard-font black-text" id="description">{{recipe.recipe_description.capitalize()}}</p>
+                            <p class="standard-font black-text"><i class="material-icons">visibility</i> {{recipe.views}}</p>
+                        </div>
+                        <div class="card-action">
+                            <p class="standard-font orange-text"><i class="material-icons">local_dining</i> Go to recipe!</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endif %} 
+        {% endfor %}
+        </div>
+    </div>
 </div>
 
 
@@ -48,45 +88,7 @@
 </div>
 
 
-<!--Sample recipe cards:-->
-<!--This will take 4 recipes from the database and display them on the index page.-->
-<!--This is intended as a "need some inspiration" style section on the home page.-->
-<div class="row">
-    <h3 class="title-font center blue-text text-lighten-3">Most viewed recipes:</h3>
-    <div class="row">
-        <div class="carousel">
-        {% for recipe in recipes %}
-        {% if loop.index < 5 %} 
-        <div class="col s8 m6 carousel-item">
-            <a href="{{url_for('the_recipe', recipe_id=recipe._id)}}">
-                <div class="card horizontal">
-                    <div class="card-image valign-wrapper">
-                        {% if recipe.image != "" %}
-                            <img src="{{recipe.image}}" class="col s12"></img>
-                        {% else %}
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" class="col s12"></img>
-                        {% endif %}
-                    </div>
-                    <div class="card-stacked">
-                        <div class=center-align>
-                            <h5 class="card-title standard-font blue-text text-lighten-3">{{recipe.recipe_title.capitalize()}}</h5>
-                        </div>
-                        <div class="card-content class-size">
-                            <p class="standard-font black-text" id="description">{{recipe.recipe_description.capitalize()}}</p>
-                            <p class="standard-font black-text"><i class="material-icons">visibility</i> {{recipe.views}}</p>
-                        </div>
-                        <div class="card-action">
-                            <p class="standard-font orange-text"><i class="material-icons">local_dining</i> Go to recipe!</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        {% endif %} 
-        {% endfor %}
-        </div>
-    </div>
-</div>
+
 
 
 {% endblock %}

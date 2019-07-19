@@ -26,9 +26,7 @@ def index():
 #////////////////////////////////////////////////# Add recipe page
 @app.route('/add_recipe')
 def add_recipe():
-    recipes=mongo.db.recipes.find()
-    categories=mongo.db.categories.find()
-    return render_template("addrecipe.html", recipes=recipes, categories=categories)
+    return render_template("addrecipe.html")
 
 
 #////////////////////////////////////////////////# Function for inserting a recipe as a document in MongoDB. Once a user has added a recipe,
@@ -118,26 +116,6 @@ def get_recipes():
     recipes=mongo.db.recipes.find()
     categories=mongo.db.categories.find()
     return render_template("recipes.html", recipes=recipes, categories=categories)
-
-
-# @app.route('/search_category/<category_id>')
-# def search_category(category_id):
-#     the_category = mongo.db.categories.find({'_id': ObjectId(category_id)})
-#     all_categories = mongo.db.categories.find()
-#     recipes=mongo.db.recipes.find()
-#     return render_template("search_category.html", recipes=recipes, category=the_category, categories=all_categories)
-    
-    
-# @app.route('/search_recipes/<category_id>', methods=['POST'])
-# def search_recipes(category_id):
-#     the_category = mongo.db.categories.find({'_id': ObjectId(category_id)})
-#     all_categories = mongo.db.categories.find()
-#     recipes=mongo.db.recipes.find()
-#     search = request.form.get('search_recipes')
-#     title_search = mongo.db.recipes.find({"recipe_title": {"$regex":search}})
-#     cuisine_search = mongo.db.recipes.find({"recipe_cuisine": {"$regex":search}})
-#     ingredients_search = mongo.db.recipes.find({"ingredients.name": {"$regex":search}})
-#     return render_template("search_recipes.html", recipes=recipes, category=the_category, categories=all_categories, title_search=title_search, cuisine_search=cuisine_search, ingredients_search=ingredients_search)
 
 
 #////////////////////////////////////////////////Search Views:
